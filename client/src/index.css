@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+body{
+  background-image: url(./assets/Desktop.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* z-index: 0; */
+  /* position: relative; */
+  /* height: 100%; */
+}
