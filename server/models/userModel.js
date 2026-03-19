@@ -13,9 +13,9 @@ const userSchema = new mongoose.Schema(
     country: { type: String, default: null },
     displayName: { type: String, default: null }, 
   },
-  
   { timestamps: true },
 );
 
 const User = mongoose.model("User", userSchema);
 export default User;
+
