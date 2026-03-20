@@ -1,3 +1,4 @@
+import { FileExclamationPointIcon } from "lucide-react";
 import React, { createContext, useState } from "react";
 
 export const AuthContext = createContext();
@@ -53,8 +54,46 @@ export default function AuthProvider({ children }) {
     }
   };
 
+  const updateProfile = async () => {
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+
+    try {
+      const token = localStorage.getItem("token");
+
+      const res = await fetch(`${baseUrl}/update-profile`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "appllication/json",
+          Authorization: `Bearer ${token}`,
+        },
+
+        body: JSON.stringify(FormData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Update Failed");
+      }
+
+      localStorage.setItem("user", JSON.stringify(data.user));
+      setUser(data.user);
+      setSuccess(data.message);
+
+      return data;
+    } catch (error) {
+      setError(error.message);
+      throw Error;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const signup = async (formData) => handleSubmit("/signup", formData);
   const signin = async (formData) => handleSubmit("/signin", formData);
+
   const forgotpassword = async (formData) =>
     handleSubmit("/forgotpassword", formData);
   const logout = () => {
@@ -68,16 +107,17 @@ export default function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
-        signin,
-        signup,
         forgotpassword,
-        logout,
-        success,
-        setSuccess,
-        user,
-        setUser,
         error,
         loading,
+        logout,
+        signin,
+        signup,
+        success,
+        setSuccess,
+        setUser,
+        user,
+        updateProfile,
       }}
     >
       {children}
