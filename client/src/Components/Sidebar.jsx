@@ -23,14 +23,14 @@ export default function Sidebar() {
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
           {isOpen && (
-            <p className="text-lg font-bold bg-linear-to-r from-[#4f46e5] to-[#46ef9d] bg-clip-text text-transparent ">
+            <p className="text-lg font-bold bg-linear-to-r from-[var(--brand)] to-[#46ef9d] bg-clip-text text-transparent ">
               Sloth
             </p>
           )}
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-1.5 text-gray-500 hover:bg-gray-200 hover:text-[#4f46e5] shadow-sm rounded-lg cursor-pointer transition-all "
+            className="p-1.5 text-gray-500 hover:bg-gray-200 hover:text-[var(--brand)] shadow-sm rounded-lg cursor-pointer transition-all "
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -42,7 +42,7 @@ export default function Sidebar() {
             end
             title="Dashboard"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2 shadow-xs rounded-lg font-medium transition-all  ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "bg-[#4f46e5] text-white" : "text-gray-500 hover:bg-gray-100 hover:text-[#4f46e5] "}`
+              `flex items-center gap-3 px-3 py-2 shadow-xs rounded-lg font-medium transition-all  ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "bg-[var(--brand)] text-white" : "text-gray-500 hover:bg-gray-100 hover:text-[var(--brand)] "}`
             }
           >
             <LayoutDashboard className="w-6 h-6  shrink-0" />
@@ -54,7 +54,7 @@ export default function Sidebar() {
             to={"/dashboard/transactions"}
             title="Transactions"
             className={({ isActive }) =>
-              `flex items-center px-3 gap-3 py-2 shadow-xs font-medium transition-all  rounded-lg ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[#4f46e5]" : "text-gray-500 hover:bg-gray-100 hover:text-[#4f46e5]"}`
+              `flex items-center px-3 gap-3 py-2 shadow-xs font-medium transition-all  rounded-lg ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[var(--brand)]" : "text-gray-500 hover:bg-gray-100 hover:text-[var(--brand)]"}`
             }
           >
             <ArrowLeftRight className="shrink-0 w-5 h-5" />
@@ -66,7 +66,7 @@ export default function Sidebar() {
             to={"/dashboard/addtransactions"}
             title="Add Transactions"
             className={({ isActive }) =>
-              `flex items-center px-3 gap-3 py-2 rounded-lg shadow-xs font-medium  transition-all  ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[#4f46e5]" : "text-gray-500 hover:bg-gray-100 hover:text-[#4f46e5]"}`
+              `flex items-center px-3 gap-3 py-2 rounded-lg shadow-xs font-medium  transition-all  ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[var(--brand)]" : "text-gray-500 hover:bg-gray-100 hover:text-[var(--brand)]"}`
             }
           >
             <ListPlus className="shrink-0 w-5 h-5" />
@@ -77,7 +77,7 @@ export default function Sidebar() {
             to={"/dashboard/reports"}
             title="Reports"
             className={({ isActive }) =>
-              `flex gap-3 items-center py-2 px-3 transition-all font-medium rounded-lg shadow-xs ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[#4f46e5]" : "text-gray-500 hover:bg-gray-100 hover:text-[#4f46e5]"} `
+              `flex gap-3 items-center py-2 px-3 transition-all font-medium rounded-lg shadow-xs ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[var(--brand)]" : "text-gray-500 hover:bg-gray-100 hover:text-[var(--brand)]"} `
             }
           >
             <ClipboardMinus className="h-5 w-5 shrink-0" />
@@ -89,7 +89,7 @@ export default function Sidebar() {
             to={"/dashboard/budget"}
             title=" Set Budget"
             className={({ isActive }) =>
-              `flex items-center gap-3 py-2 px-3 transitions-all font-medium shadow-xs rounded-lg ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[#4f46e5]" : "text-gray-500 hover:bg-gray-100 hover:text-[#4f46e5]"}  `
+              `flex items-center gap-3 py-2 px-3 transitions-all font-medium shadow-xs rounded-lg ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[var(--brand)]" : "text-gray-500 hover:bg-gray-100 hover:text-[var(--brand)]"}  `
             }
           >
             <AlignHorizontalDistributeCenter className="w-5 h-5 shrink-0 " />
@@ -101,7 +101,7 @@ export default function Sidebar() {
             to={"/dashboard/export"}
             title="Export"
             className={({ isActive }) =>
-              `flex gap-3 px-3 py-2 shadow-xs rounded-lg transition-all font-medium items-center ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[#4f46e5]" : "text-gray-500 hover:bg-gray-100 hover:text-[#4f46e5]"}`
+              `flex gap-3 px-3 py-2 shadow-xs rounded-lg transition-all font-medium items-center ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[var(--brand)]" : "text-gray-500 hover:bg-gray-100 hover:text-[var(--brand)]"}`
             }
           >
             <Download className="w-5 h-5 shrink-0" />
@@ -115,7 +115,7 @@ export default function Sidebar() {
             to={"/dashboard/settings"}
             title="Settings"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2 shadow-xs rounded-lg font-medium transition-all ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[#464fe5]" : "text-gray-500 hover:bg-gray-100 hover:text-[#4f46e5]"}`
+              `flex items-center gap-3 px-3 py-2 shadow-xs rounded-lg font-medium transition-all ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[#464fe5]" : "text-gray-500 hover:bg-gray-100 hover:text-[var(--brand)]"}`
             }
           >
             <Settings className="shrink-0 w-5 h-5 " />
@@ -123,18 +123,15 @@ export default function Sidebar() {
           </NavLink>
 
           <NavLink
-            to={'/dashboard/logout'}
+            to={"/dashboard/logout"}
             title="Log Out"
-            className={({isActive}) => `flex gap-3 px-3 py-2 rounded-lg shadow-xs font-medium transition-all items-center ${isOpen ? 'justify-start': 'justify-center'} ${isActive ? 'text-white bg-red-600': 'text-red-500 hover:bg-red-50 hover:text-red-400'}`}
+            className={({ isActive }) =>
+              `flex gap-3 px-3 py-2 rounded-lg shadow-xs font-medium transition-all items-center ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-red-600" : "text-red-500 hover:bg-red-50 hover:text-red-400"}`
+            }
           >
-
             <LogOut className="w-5 h-5 shrink-0 " />
-            
-            {isOpen && (
-              <span>
-                Log Out
-              </span>
-            )}
+
+            {isOpen && <span>Log Out</span>}
           </NavLink>
         </div>
       </div>

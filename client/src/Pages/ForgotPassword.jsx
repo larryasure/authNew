@@ -6,7 +6,8 @@ import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../Context/AuthContext";
 
 export default function ForgotPassword() {
-  const { forgotpassword, success, error, loading, setSuccess } = useContext(AuthContext);
+  const { forgotpassword, success, error, loading, setSuccess } =
+    useContext(AuthContext);
   const [email, setEmail] = useState("");
 
   function handleSubmit(e) {
@@ -19,15 +20,11 @@ export default function ForgotPassword() {
     } catch (error) {
       console.error(error.message);
     }
-
-
-
   }
 
-
   useEffect(() => {
-    setSuccess(null)
-  }, [])
+    setSuccess(null);
+  }, []);
   return (
     <div className="min-h-screen py-4 w-full flex items-center justify-center z-10">
       <div className="max-w-96 border border-gray-300 shadow-xl rounded-2xl bg-white p-6 w-full">
@@ -66,7 +63,7 @@ export default function ForgotPassword() {
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center justify-center gap-3 w-full py-1.5 bg-[#4f46e5] text-white rounded-3xl cursor-pointer active:scale-105 transition-all duration-200"
+            className="flex items-center justify-center gap-3 w-full py-1.5 bg-[var(--brand)] text-white rounded-3xl cursor-pointer active:scale-105 transition-all duration-200"
           >
             Send Reset Link
             <img src={arrowRight} alt="arrow right" />
@@ -78,8 +75,8 @@ export default function ForgotPassword() {
 
           {loading && (
             <div className="flex items-center gap-3 font-semibold">
-              <span className="text-[#4f46e5]">Sending...</span>
-              <div className="border-4 border-[#4f46e5] border-t-transparent h-5 w-5 rounded-full animate-spin"></div>
+              <span className="text-[var(--brand)]">Sending...</span>
+              <div className="border-4 border-[var(--brand)] border-t-transparent h-5 w-5 rounded-full animate-spin"></div>
             </div>
           )}
 
@@ -91,7 +88,7 @@ export default function ForgotPassword() {
 
           <p className="flex items-center text-sm justify-center font-medium gap-2">
             Remembered your password?{" "}
-            <NavLink to="/signIn" className="text-[#4f46e5] font-semibold">
+            <NavLink to="/signIn" className="text-[var(--brand)] font-semibold">
               Sign In
             </NavLink>
           </p>

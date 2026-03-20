@@ -92,7 +92,7 @@ export default function Export() {
     return (
       <div className="flex items-center justify-center h-64">
         <p className="flex items-center gap-2">
-          <span className="h-5 w-5 border-3 border-[#4f46e5]   border-t-transparent rounded-full animate-spin" />
+          <span className="h-5 w-5 border-3 border-[var(--brand)]   border-t-transparent rounded-full animate-spin" />
           Loading...
         </p>
       </div>
@@ -227,7 +227,7 @@ export default function Export() {
           <button
             onClick={handleDownload}
             disabled={filtered.length === 0}
-            className={`flex items-center gap-3 px-5 py-2  rounded-xl transition-all duration-300 font-semibold active:ring-0 text-sm ${filtered.length === 0 ? "bg-gray-100 text-gray-400 cursor-not-allowed" : "text-white bg-[#4f46e5] hover:opacity-90 cursor-pointer"}`}
+            className={`flex items-center gap-3 px-5 py-2  rounded-xl transition-all duration-300 font-semibold active:ring-0 text-sm ${filtered.length === 0 ? "bg-gray-100 text-gray-400 cursor-not-allowed" : "text-white bg-[var(--brand)] hover:opacity-90 cursor-pointer"}`}
           >
             <Download className="w-5 h-5 " />
             Download CSV - {filtered.length} Records

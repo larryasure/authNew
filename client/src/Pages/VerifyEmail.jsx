@@ -53,7 +53,7 @@ export default function VerifyEmail() {
               <span className="w-4 h-4 bg-[#464eda] rounded-full animate-pulse [delay:animation-delay-400ms]"></span>
               <NavLink
                 to={"/signin"}
-                className="text-[#4f46e5] font-semibold text-sm underline"
+                className="text-[var(--brand)] font-semibold text-sm underline"
               >
                 Go to sign in
               </NavLink>
@@ -61,8 +61,8 @@ export default function VerifyEmail() {
           )}
 
           {!success && message !== "Verifying Your Email..." && (
-            <NavLink className='text-[#4f46e5] text-sm underline font-semibold'>
-                Back to sign in
+            <NavLink className="text-[var(--brand)] text-sm underline font-semibold">
+              Back to sign in
             </NavLink>
           )}
         </div>

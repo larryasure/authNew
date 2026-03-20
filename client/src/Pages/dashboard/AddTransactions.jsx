@@ -60,23 +60,22 @@ export default function AddTransactions() {
         }),
       });
 
-      const data = await res.json()
+      const data = await res.json();
 
       if (res.ok) {
-        setTransactions([...transactions, data.transaction])
-        setSubmitted(true)
-        setTimeout(() => setSubmitted(false), 2500)
+        setTransactions([...transactions, data.transaction]);
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 2500);
         setForm({
           description: "",
           category: "",
           type: "Income",
           date: "",
           amount: "",
-        })
+        });
       }
     } catch (error) {
       console.error("Failed to add transaction", error);
-      
     }
   };
   const isIncome = form.type === "Income";
@@ -138,7 +137,7 @@ export default function AddTransactions() {
                     onChange={handleChange}
                     min={0}
                     step={0.01}
-                    className="w-full pl-7 pr-3 py-3 border border-gray-200 rounded-xl text-2xl font-bold text-gray-800 focus:ring-2   focus:border-0 focus:ring-[#b0aedf] focus:border-[#4f46e5] outline-none transition-all duration-300"
+                    className="w-full pl-7 pr-3 py-3 border border-gray-200 rounded-xl text-2xl font-bold text-gray-800 focus:ring-2   focus:border-0 focus:ring-[#b0aedf] focus:border-[var(--brand)] outline-none transition-all duration-300"
                   />
                 </div>
                 <div className="flex flex-col">
@@ -151,7 +150,7 @@ export default function AddTransactions() {
                     placeholder="What's this for?..."
                     value={form.description}
                     onChange={handleChange}
-                    className="px-3 py-3 border rounded-2xl focus:ring-2   focus:border-0 focus:ring-[#b0aedf] focus:border-[#4f46e5] outline-none transition-all duration-300"
+                    className="px-3 py-3 border rounded-2xl focus:ring-2   focus:border-0 focus:ring-[#b0aedf] focus:border-[var(--brand)] outline-none transition-all duration-300"
                   />
                 </div>
 
@@ -164,7 +163,7 @@ export default function AddTransactions() {
                       name="category"
                       value={form.category}
                       onChange={handleChange}
-                      className="px-3 py-3 border rounded-2xl focus:ring-2   focus:border-0 focus:ring-[#b0aedf] focus:border-[#4f46e5] outline-none transition-all duration-300"
+                      className="px-3 py-3 border rounded-2xl focus:ring-2   focus:border-0 focus:ring-[#b0aedf] focus:border-[var(--brand)] outline-none transition-all duration-300"
                     >
                       <option value="">Select Category...</option>
                       {category.map((cat) => (
@@ -183,7 +182,7 @@ export default function AddTransactions() {
                       name="date"
                       value={form.date}
                       onChange={handleChange}
-                      className="px-3 py-3 border rounded-2xl focus:ring-2   focus:border-0 focus:ring-[#b0aedf] focus:border-[#4f46e5] outline-none transition-all duration-300"
+                      className="px-3 py-3 border rounded-2xl focus:ring-2   focus:border-0 focus:ring-[#b0aedf] focus:border-[var(--brand)] outline-none transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -206,7 +205,7 @@ export default function AddTransactions() {
 
                   <button
                     type="submit"
-                    className="px-6 py-2.5 rounded-xl bg-[#4f46e5] text-white font-semibold hover:opacity-90 transition-all"
+                    className="px-6 py-2.5 rounded-xl bg-[var(--brand)] text-white font-semibold hover:opacity-90 transition-all"
                   >
                     Add Transaction
                   </button>
@@ -250,15 +249,15 @@ export default function AddTransactions() {
               <h2 className="text-lg font-bold mb-3">Tips</h2>
               <div className="space-y-3 text-sm text-gray-500">
                 <p className="flex gap-2">
-                  <span className="text-[#4f46e5] font-bold">→</span>
+                  <span className="text-[var(--brand)] font-bold">→</span>
                   Use clear descriptions so you can find transactions later.
                 </p>
                 <p className="flex gap-2">
-                  <span className="text-[#4f46e5] font-bold">→</span>
+                  <span className="text-[var(--brand)] font-bold">→</span>
                   Consistent categories help your charts stay accurate.
                 </p>
                 <p className="flex gap-2">
-                  <span className="text-[#4f46e5] font-bold">→</span>
+                  <span className="text-[var(--brand)] font-bold">→</span>
                   Log expenses the same day to avoid forgetting.
                 </p>
               </div>

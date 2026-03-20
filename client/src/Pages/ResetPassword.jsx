@@ -140,7 +140,7 @@ export default function ResetPassword() {
 
             <button
               type="submit"
-              className={`flex mt-3 items-center gap-3 self-center px-7 cursor-pointer justify-center text-white bg-[#4f46e5] py-2 rounded-2xl active:scale-105 transition-all duration-200 `}
+              className={`flex mt-3 items-center gap-3 self-center px-7 cursor-pointer justify-center text-white bg-[var(--brand)] py-2 rounded-2xl active:scale-105 transition-all duration-200 `}
             >
               Submit
             </button>
@@ -148,7 +148,10 @@ export default function ResetPassword() {
 
             <p className="flex items-center text-sm justify-center  font-medium gap-3">
               Already have an account?
-              <NavLink className="text-[#4f46e5] font-semibold" to={"/signIn"}>
+              <NavLink
+                className="text-[var(--brand)] font-semibold"
+                to={"/signIn"}
+              >
                 Sign In
               </NavLink>
             </p>

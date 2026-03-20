@@ -47,7 +47,7 @@ export default function Transactions() {
     return (
       <div className="flex items-center justify-center h-64">
         <p className="flex items-center gap-2">
-          <span className="h-5 w-5 border border-[#4f46e5] border-t-transparent rounded-full animate-spin "></span>
+          <span className="h-5 w-5 border border-[var(--brand)] border-t-transparent rounded-full animate-spin "></span>
           Loading Trasactions...
         </p>
       </div>

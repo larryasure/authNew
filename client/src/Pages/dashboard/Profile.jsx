@@ -118,9 +118,7 @@ export default function Profile() {
 
           <div className="text-center">
             <p className="font-bold text-lg">{formData.name}</p>
-            <p className="text-sm text-gray-500">
-              @{formData.displayName }
-            </p>
+            <p className="text-sm text-gray-500">@{formData.displayName}</p>
           </div>
 
           <div className="text-sm text-gray-600 space-y-1">
@@ -244,7 +242,7 @@ export default function Profile() {
             ) : (
               <button
                 onClick={() => setEditMode(true)}
-                className="bg-[#4f46e5] text-white px-5 py-2 rounded-lg"
+                className="bg-[var(--brand)] text-white px-5 py-2 rounded-lg"
               >
                 Edit Profile
               </button>

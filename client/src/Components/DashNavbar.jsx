@@ -39,7 +39,7 @@ export default function DashNavbar() {
             )}
           </button>
 
-          <h1 className="text-lg font-bold text-[#4f46e5]">Sloth</h1>
+          <h1 className="text-lg font-bold text-[var(--brand)]">Sloth</h1>
           <div className="hidden md:flex">
             <input
               type="text"
@@ -50,7 +50,7 @@ export default function DashNavbar() {
         </div>
 
         <div className=" flex items-center gap-6 cursor-pointer">
-          <button className="relative text-gray-700 hover:text-[#4f46e5] ">
+          <button className="relative text-gray-700 hover:text-[var(--brand)] ">
             <Bell className="w-7 h-7 cursor-pointer" />
             <span className="w-4 h-4 absolute text-xs bg-red-500 text-white flex items-center justify-center rounded-full -top-3 -right-1">
               2
@@ -62,7 +62,7 @@ export default function DashNavbar() {
               onClick={() => setIsProfileOpen(!isProfileOpen)}
               className="px-3 py-1.5 gap-2 flex items-center rounded-lg hover:bg-gray-100 transition-all duration-200 cursor-pointer active:scale-105"
             >
-              <div className="w-8 h-8  bg-[#4f46e5] rounded-full text-white  font-bold flex items-center justify-center">
+              <div className="w-8 h-8  bg-[var(--brand)] rounded-full text-white  font-bold flex items-center justify-center">
                 {user?.name
                   ?.split(" ")
                   .map((n) => n[0])
@@ -85,7 +85,10 @@ export default function DashNavbar() {
                 </button> */}
 
                 <button
-                  onClick={() => { navigate("/dashboard/settings");  setIsProfileOpen(false)}}
+                  onClick={() => {
+                    navigate("/dashboard/settings");
+                    setIsProfileOpen(false);
+                  }}
                   className="w-full flex items-center gap-4 px-4 py-2 hover:bg-gray-100 border-b border-gray-200 transition-all duration-300 cursor-pointer"
                 >
                   <Settings className="w-4 h-4" />
@@ -93,7 +96,10 @@ export default function DashNavbar() {
                 </button>
 
                 <button
-                  onClick={() => { navigate("/dashboard/logout");  setIsProfileOpen(false)}}
+                  onClick={() => {
+                    navigate("/dashboard/logout");
+                    setIsProfileOpen(false);
+                  }}
                   className="w-full flex items-center gap-4 px-4 py-2 hover:bg-gray-100 text-red-600 transition-all duration-300 cursor-pointer "
                 >
                   <LogOut className="w-4 h-4" />

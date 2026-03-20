@@ -133,7 +133,7 @@ export default function Reports() {
     return (
       <div className="flex items-center justify-center h-64">
         <p className=" flex items-center gap-2">
-          <span className="h-5 w-5 rounded-full border-t-transparent border-3 border-[#4f46e5] animate-spin"></span>
+          <span className="h-5 w-5 rounded-full border-t-transparent border-3 border-[var(--brand)] animate-spin"></span>
           Loading reports
         </p>
       </div>
@@ -156,7 +156,7 @@ export default function Reports() {
             type="date"
             value={dateFrom}
             onChange={(e) => setDateFrom(e.target.value)}
-            className="border border-gray-200 px-3 py-1.5 rounded-lg shadow-sm  text-sm focus:outline-0 focus:ring focus:ring-[#4f46e5] text-gray-700"
+            className="border border-gray-200 px-3 py-1.5 rounded-lg shadow-sm  text-sm focus:outline-0 focus:ring focus:ring-[var(--brand)] text-gray-700"
           />
           <ArrowRight className="w-5 h-5 text-gray-400" />
 
@@ -165,7 +165,7 @@ export default function Reports() {
             value={dateTo}
             name="date"
             onChange={(e) => setDateTo(e.target.value)}
-            className="border border-gray-200 px-3 py-1.5 rounded-lg shadow-sm text-sm text-gray-700 focus:ring focus:outline-0 focus:ring-[#4f46e5] "
+            className="border border-gray-200 px-3 py-1.5 rounded-lg shadow-sm text-sm text-gray-700 focus:ring focus:outline-0 focus:ring-[var(--brand)] "
           />
         </div>
 
@@ -174,7 +174,7 @@ export default function Reports() {
             <button
               key={m}
               onClick={() => setSelectedMonth(m)}
-              className={`px-3.5 py-1 font-medium text-xs rounded-2xl transition-all duration-300 cursor-pointer  ${selectedMonth === m ? "text-white bg-[#4f46e5]" : "text-gray-500 bg-gray-100 hover:bg-gray-200"} `}
+              className={`px-3.5 py-1 font-medium text-xs rounded-2xl transition-all duration-300 cursor-pointer  ${selectedMonth === m ? "text-white bg-[var(--brand)]" : "text-gray-500 bg-gray-100 hover:bg-gray-200"} `}
             >
               {m}
             </button>
@@ -184,7 +184,7 @@ export default function Reports() {
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="border border-gray-200 text-sm  rounded-lg shadow-sm ml-auto px-3 py-1.5 focus:outline-0  focus:ring-[#4f46e5] text-gray-700 bg-white "
+          className="border border-gray-200 text-sm  rounded-lg shadow-sm ml-auto px-3 py-1.5 focus:outline-0  focus:ring-[var(--brand)] text-gray-700 bg-white "
         >
           <option value="All">All Categories</option>
           {categories.map((c) => (
@@ -218,7 +218,7 @@ export default function Reports() {
           <div className="bg-white p-6 border border-gray-100 rounded-2xl">
             <p className="text-sm text-gray-500">Net Savings</p>
             <p
-              className={`text-2xl font-bold mt-2 ${summary.savings >= 0 ? "text-[#4f46e5]" : "text-red-600"}`}
+              className={`text-2xl font-bold mt-2 ${summary.savings >= 0 ? "text-[var(--brand)]" : "text-red-600"}`}
             >
               {summary.savings >= 0 ? "+" : "-"}$
               {Math.abs(summary.savings).toLocaleString()}

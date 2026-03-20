@@ -13,7 +13,7 @@ export default function Settings() {
                 to={"/dashboard/settings"}
                 end
                 className={({ isActive }) =>
-                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[#4f46e5] text-white" : "text-gray-700 hover:bg-gray-100"}`
+                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[var(--brand)] text-white" : "text-gray-700 hover:bg-gray-100"}`
                 }
               >
                 <User className="w-6 h-6 " />
@@ -23,7 +23,7 @@ export default function Settings() {
               <NavLink
                 to={"/dashboard/settings/security"}
                 className={({ isActive }) =>
-                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[#4f46e5] text-white" : "text-gray-700 hover:bg-gray-100"}`
+                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[var(--brand)] text-white" : "text-gray-700 hover:bg-gray-100"}`
                 }
               >
                 <Lock className="w-6 h-6 " />
@@ -33,7 +33,7 @@ export default function Settings() {
               <NavLink
                 to={"/dashboard/settings/notifications"}
                 className={({ isActive }) =>
-                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[#4f46e5] text-white" : "text-gray-700 hover:bg-gray-100"}`
+                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[var(--brand)] text-white" : "text-gray-700 hover:bg-gray-100"}`
                 }
               >
                 <BellDot className="w-6 h-6 " />
@@ -43,7 +43,7 @@ export default function Settings() {
               <NavLink
                 to={"/dashboard/settings/appearance"}
                 className={({ isActive }) =>
-                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[#4f46e5] text-white" : "text-gray-700 hover:bg-gray-100"}`
+                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[var(--brand)] text-white" : "text-gray-700 hover:bg-gray-100"}`
                 }
               >
                 <Palette className="w-6 h-6 " />
@@ -53,7 +53,7 @@ export default function Settings() {
               <NavLink
                 to={"/dashboard/settings/billing"}
                 className={({ isActive }) =>
-                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[#4f46e5] text-white" : "text-gray-700 hover:bg-gray-100"}`
+                  `flex items-center rounded-lg font-medium transition-all duration-300 px-3 py-1.5 gap-4 ${isActive ? "bg-[var(--brand)] text-white" : "text-gray-700 hover:bg-gray-100"}`
                 }
               >
                 <CreditCard className="w-6 h-6 " />

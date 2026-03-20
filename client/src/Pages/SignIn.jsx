@@ -36,18 +36,18 @@ export default function SignUp() {
     }
   }
 
-    useEffect(() => {
-      if (success && success === "Login Successful!") {
-        const timer = setTimeout(() => {
-          navigate("/dashboard");
-        }, 2500);
-        return () => clearTimeout(timer);
-      }
-    }, [success, navigate]);
+  useEffect(() => {
+    if (success && success === "Login Successful!") {
+      const timer = setTimeout(() => {
+        navigate("/dashboard");
+      }, 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [success, navigate]);
 
-    useEffect(() => {
-      setSuccess(null);
-    }, []);
+  useEffect(() => {
+    setSuccess(null);
+  }, []);
   return (
     <>
       <div className="min-h-screen py-4 w-full z-10 ">
@@ -137,7 +137,7 @@ export default function SignUp() {
 
                 <div className="space-y-3">
                   {loading && (
-                    <div className="flex items-center font-semibold text-[#4f46e5] text-sm gap-3">
+                    <div className="flex items-center font-semibold text-[var(--brand)] text-sm gap-3">
                       Loading Please wait....
                       <div className="w-4 h-4 border-4 border-t-transparent rounded-full animate-spin"></div>
                     </div>
@@ -173,12 +173,12 @@ export default function SignUp() {
                   <div className="flex items-center gap-1">
                     <input
                       type="checkbox"
-                      className="accent-[#4f46e5] w-3 h-4"
+                      className="accent-[var(--brand)] w-3 h-4"
                     />
                     <span className="text-sm ">Remember Me</span>
                   </div>
 
-                  <button className="text-sm text-[#4f46e5] font-semibold cursor-pointer underline">
+                  <button className="text-sm text-[var(--brand)] font-semibold cursor-pointer underline">
                     <NavLink to={"/forgetPassword"}>Forgot Password?</NavLink>
                   </button>
                 </label>
@@ -187,7 +187,7 @@ export default function SignUp() {
               <button
                 type="submit"
                 className="flex items-center gap-3 text-white
-             bg-[#4f46e5] justify-center py-1.5 w-full rounded-3xl cursor-pointer active:scale-105 transition-all duration-200 "
+             bg-[var(--brand)] justify-center py-1.5 w-full rounded-3xl cursor-pointer active:scale-105 transition-all duration-200 "
               >
                 Sign In
                 <div>
@@ -197,7 +197,7 @@ export default function SignUp() {
 
               <p className="flex items-center text-sm justify-center  font-medium gap-3">
                 Don’t have an account?{" "}
-                <button className="text-[#4f46e5] font-semibold">
+                <button className="text-[var(--brand)] font-semibold">
                   <NavLink to={"/signup"}>Sign Up</NavLink>
                 </button>
               </p>

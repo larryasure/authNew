@@ -124,7 +124,6 @@ export default function Dashboard() {
 
   console.log("MonthlyData in state:", monthlyData);
 
-  
   return (
     <>
       <div className="min-h-screen mx-8 py-5 ">
@@ -137,14 +136,11 @@ export default function Dashboard() {
         <div className="grid grid-cols-3 gap-6 mb-5 ">
           <div className=" bg-white border border-gray-300 rounded-2xl shadow-sm p-6 flex items-center gap-4 ">
             <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#eef2ff]">
-              <Wallet className="w-6 h-6 text-[#4f46e5]" />
+              <Wallet className="w-6 h-6 text-[var(--brand)]" />
             </div>
-            <p className="font-semibold text-sm text-gray-600 mb-2">
-              Total 
-              
-            </p>
+            <p className="font-semibold text-sm text-gray-600 mb-2">Total</p>
             <p
-              className={`font-bold text-3xl ${totalBalance >= 0 ? "text-[#4f46e5]" : "text-red-600"} `}
+              className={`font-bold text-3xl ${totalBalance >= 0 ? "text-[var(--brand)]" : "text-red-600"} `}
             >
               ${totalBalance}
             </p>
@@ -223,7 +219,7 @@ export default function Dashboard() {
                 <XAxis dataKey="category" />
                 <YAxis />
                 <Tooltip />
-                <Bar dataKey="amount" fill="#4f46e5" />
+                <Bar dataKey="amount" fill="var(--brand)" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -249,7 +245,7 @@ export default function Dashboard() {
               <h2 className="text-lg font-bold">Recent Transactions</h2>
               <button
                 onClick={() => navigate("/dashboard/transactions")}
-                className="text-sm text-[#4f46e5] font-semibold cursor-pointer hover:underline"
+                className="text-sm text-[var(--brand)] font-semibold cursor-pointer hover:underline"
               >
                 View all
               </button>
@@ -296,7 +292,7 @@ export default function Dashboard() {
             <div className="space-y-3">
               <button
                 onClick={() => navigate("/dashboard/addtransactions")}
-                className="w-full flex items-center gap-3 bg-[#4f46e5] text-white font-semibold py-3 px-4 rounded-xl hover:opacity-90 transition-all"
+                className="w-full flex items-center gap-3 bg-[var(--brand)] text-white font-semibold py-3 px-4 rounded-xl hover:opacity-90 transition-all"
               >
                 <ListPlus className="w-5 h-5" />
                 Add Transaction

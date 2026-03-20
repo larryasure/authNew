@@ -13,7 +13,7 @@ export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,7 +22,8 @@ export default function SignUp() {
 
   const [localError, setLocalError] = useState(null);
 
-  const { signup, success, error, loading, setSuccess } = useContext(AuthContext);
+  const { signup, success, error, loading, setSuccess } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -68,10 +69,9 @@ export default function SignUp() {
   }, [success, navigate]);
 
   useEffect(() => {
-  setSuccess(null);
-}, []);
+    setSuccess(null);
+  }, []);
 
-  
   const passwordStrength = (password) => {
     let score = 0;
     if (password.length >= 8) score++;
@@ -91,15 +91,12 @@ export default function SignUp() {
     "bg-yellow-600",
     "bg-green-500",
   ];
-    const strengthTextColors = [
+  const strengthTextColors = [
     "text-red-500",
     "text-orange-300",
     "text-yellow-500",
     "text-green-500",
   ];
-
-
-
 
   const strengthScore = passwordStrength(formData.password);
   return (
@@ -254,12 +251,11 @@ export default function SignUp() {
                 ))}
               </div>
 
-            <p
-              className={`text-xs text-center  font-medium ${formData.password ? strengthTextColors[strengthScore - 1] : "text-gray-500"} `}
-            >
-              {formData.password ? strenthLabels[strengthScore - 1] : ""}
+              <p
+                className={`text-xs text-center  font-medium ${formData.password ? strengthTextColors[strengthScore - 1] : "text-gray-500"} `}
+              >
+                {formData.password ? strenthLabels[strengthScore - 1] : ""}
               </p>
-                
             </div>
 
             <div className="space-y-3">
@@ -268,7 +264,7 @@ export default function SignUp() {
               <button
                 disabled={loading || strengthScore < 3}
                 type="submit"
-                className={`flex items-center gap-3 text-white bg-[#4f46e5] justify-center py-1.5 w-full rounded-3xl   active:scale-105 transition-all duration-200 ${loading || strengthScore < 3 ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
+                className={`flex items-center gap-3 text-white bg-[var(--brand)] justify-center py-1.5 w-full rounded-3xl   active:scale-105 transition-all duration-200 ${loading || strengthScore < 3 ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
               >
                 Sign Up
                 <div>
@@ -277,7 +273,7 @@ export default function SignUp() {
               </button>
 
               {loading && (
-                <div className="flex items-center font-semibold text-[#4f46e5] text-sm gap-3">
+                <div className="flex items-center font-semibold text-[var(--brand)] text-sm gap-3">
                   Loading Please wait....
                   <div className="w-4 h-4 border-4 border-t-transparent rounded-full animate-spin"></div>
                 </div>
@@ -304,7 +300,7 @@ export default function SignUp() {
               <p className="flex items-center text-sm justify-center  font-medium gap-3">
                 Already have an account?
                 <NavLink
-                  className="text-[#4f46e5] font-semibold"
+                  className="text-[var(--brand)] font-semibold"
                   to={"/signIn"}
                 >
                   Sign In

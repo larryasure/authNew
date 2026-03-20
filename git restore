@@ -1,0 +1,23 @@
+warning: in the working copy of 'client/src/index.css', LF will be replaced by CRLF the next time Git touches it
+ client/src/Components/DashNavbar.jsx           |  32 [32m+++[m[31m---[m
+ client/src/Components/Footer.jsx               | 137 [32m++++++++++++++++++++[m[31m-----[m
+ client/src/Components/Navbar.jsx               |  54 [32m+++++[m[31m-----[m
+ client/src/Components/Sidebar.jsx              |  35 [32m+++[m[31m----[m
+ client/src/Pages/ForgotPassword.jsx            |  24 [32m++[m[31m---[m
+ client/src/Pages/ResetPassword.jsx             |  11 [32m+[m[31m-[m
+ client/src/Pages/Settings/Security.jsx         |  32 [32m+++[m[31m---[m
+ client/src/Pages/SignIn.jsx                    |  42 [32m++++[m[31m----[m
+ client/src/Pages/SignUp.jsx                    |  40 [32m++++[m[31m----[m
+ client/src/Pages/VerifyEmail.jsx               |  10 [32m+[m[31m-[m
+ client/src/Pages/dashboard/AddTransactions.jsx |  51 [32m+++++[m[31m----[m
+ client/src/Pages/dashboard/Budget.jsx          |  26 [32m++[m[31m---[m
+ client/src/Pages/dashboard/Dashboard.jsx       |  48 [32m+++++[m[31m----[m
+ client/src/Pages/dashboard/Export.jsx          |  32 [32m+++[m[31m---[m
+ client/src/Pages/dashboard/Logout.jsx          |  36 [32m+++[m[31m----[m
+ client/src/Pages/dashboard/Profile.jsx         |  18 [32m++[m[31m--[m
+ client/src/Pages/dashboard/Reports.jsx         |  40 [32m++++[m[31m----[m
+ client/src/Pages/dashboard/Settings.jsx        |  12 [32m+[m[31m--[m
+ client/src/Pages/dashboard/Transactions.jsx    |  31 [32m+++[m[31m---[m
+ client/src/index.css                           |  62 [32m+++++++++[m[31m--[m
+ server/controller/authController.js            |  12 [32m+[m[31m--[m
+ 21 files changed, 467 insertions(+), 318 deletions(-)

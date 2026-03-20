@@ -133,7 +133,7 @@ export default function Security() {
         },
       });
 
-      const data =await  res.json();
+      const data = await res.json();
 
       if (!res.ok) {
         setDeleteError(data.message);
@@ -290,7 +290,7 @@ export default function Security() {
 
             <button
               type="submit"
-              className="bg-[#4f46e5] self-start mt-1 cursor-pointer text-white font-semibold px-6 py-2.5 rounded-xl hover:opacity-90 transition-all"
+              className="bg-[var(--brand)] self-start mt-1 cursor-pointer text-white font-semibold px-6 py-2.5 rounded-xl hover:opacity-90 transition-all"
             >
               {isLoading ? "Updating" : "Update Password"}
             </button>
@@ -354,7 +354,9 @@ export default function Security() {
               className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:border-red-400 outline-none focus:ring-1 mb-5 text-sm focus:ring-red-300 duration-200 transition-all"
             />
             {deleteError && (
-              <p className="text-red-500 mb-2 font-semibold text-xs">{ deleteError}</p>
+              <p className="text-red-500 mb-2 font-semibold text-xs">
+                {deleteError}
+              </p>
             )}
 
             <div className=" flex gap-3 ">
@@ -373,7 +375,7 @@ export default function Security() {
                 disabled={confirmEmail !== user?.email || deleteLoading}
                 className="flex-1 bg-red-500 text-white font-semibold py-2 rounded-xl transition-all duration-200 active:scale-100 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-red-600 cursor-pointer  "
               >
-                {deleteLoading ? 'Deleting' : 'Yes, delete my account'}
+                {deleteLoading ? "Deleting" : "Yes, delete my account"}
               </button>
             </div>
           </div>

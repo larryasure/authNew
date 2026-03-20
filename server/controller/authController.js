@@ -38,11 +38,11 @@ export const signup = async (req, res) => {
       subject: "Verify Your Email",
       html: `
          <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; border: 1px solid #e5e7eb; border-radius: 16px;">
-      <h1 style="color: #4f46e5; font-size: 24px; margin-bottom: 4px;">Sloth</h1>
+      <h1 style="color: #var(--brand)); font-size: 24px; margin-bottom: 4px;">Sloth</h1>
       <hr style="border: none; border-top: 1px solid #e5e7eb; margin-bottom: 24px;" />
       <h2 style="font-size: 20px; color: #111827;">Verify Your Email</h2>
       <p style="color: #6b7280; font-size: 15px;">Thanks ${newUser.name}, for signing up! Click the button below to verify your email address.</p>
-      <a href="${verifyLink}" style="display: inline-block; margin: 24px 0; background-color: #4f46e5; color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
+      <a href="${verifyLink}" style="display: inline-block; margin: 24px 0; background-color: #var(--brand)); color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
         Verify Email
       </a>
       <p style="color: #6b7280; font-size: 13px;">This link expires in <strong>24 hours</strong>.</p>
@@ -137,7 +137,7 @@ export const forgotPassword = async (req, res) => {
       html: `
   <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; border: 1px solid #e5e7eb; border-radius: 16px;">
     
-    <h1 style="color: #4f46e5; font-size: 24px; margin-bottom: 4px;">Sloth</h1>
+    <h1 style="color: #var(--brand)); font-size: 24px; margin-bottom: 4px;">Sloth</h1>
     <hr style="border: none; border-top: 1px solid #e5e7eb; margin-bottom: 24px;" />
     
     <h2 style="font-size: 20px; color: #111827;">Reset Your Password</h2>
@@ -145,7 +145,7 @@ export const forgotPassword = async (req, res) => {
       We received a request to reset your password. Click the button below to choose a new one.
     </p>
 
-    <a href="${resetLink}" style="display: inline-block; margin: 24px 0; background-color: #4f46e5; color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
+    <a href="${resetLink}" style="display: inline-block; margin: 24px 0; background-color: #var(--brand)); color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
       Reset Password
     </a>
 
@@ -272,11 +272,11 @@ export const resendVerification = async (req, res) => {
       html: `
       
       <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; border: 1px solid #e5e7eb; border-radius: 16px;">
-          <h1 style="color: #4f46e5; font-size: 24px; margin-bottom: 4px;">Sloth</h1>
+          <h1 style="color: #var(--brand)); font-size: 24px; margin-bottom: 4px;">Sloth</h1>
           <hr style="border: none; border-top: 1px solid #e5e7eb; margin-bottom: 24px;" />
           <h2 style="font-size: 20px; color: #111827;">Verify Your Email</h2>
           <p style="color: #6b7280; font-size: 15px;">Click the button below to verify your email address.</p>
-          <a href="${verifyLink}" style="display: inline-block; margin: 24px 0; background-color: #4f46e5; color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
+          <a href="${verifyLink}" style="display: inline-block; margin: 24px 0; background-color: #var(--brand)); color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
             Verify Email
           </a>
           <p style="color: #6b7280; font-size: 13px;">This link expires in <strong>24 hours</strong>.</p>

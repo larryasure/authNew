@@ -14,7 +14,7 @@ export default function Navbar() {
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-2">
             <img src={logo} alt="Sloth Logo" className="w-10 h-10" />
-            <p className="text-clip text-transparent bg-linear-to-r bg-clip-text from-[#4f46e5] to-[#46e59d] text-lg font-bold">
+            <p className="text-clip text-transparent bg-linear-to-r bg-clip-text from-[var(--brand)] to-[#46e59d] text-lg font-bold">
               Sloth
             </p>
           </NavLink>
@@ -26,8 +26,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `font-medium transition-colors ${
                   isActive
-                    ? "text-[#4f46e5]"
-                    : "text-gray-700 hover:text-[#4f46e5]"
+                    ? "text-[var(--brand)]"
+                    : "text-gray-700 hover:text-[var(--brand)]"
                 }`
               }
             >
@@ -38,8 +38,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `font-medium transition-colors ${
                   isActive
-                    ? "text-[#4f46e5]"
-                    : "text-gray-700 hover:text-[#4f46e5]"
+                    ? "text-[var(--brand)]"
+                    : "text-gray-700 hover:text-[var(--brand)]"
                 }`
               }
             >
@@ -51,8 +51,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `font-medium transition-colors ${
                   isActive
-                    ? "text-[#4f46e5]"
-                    : "text-gray-700 hover:text-[#4f46e5]"
+                    ? "text-[var(--brand)]"
+                    : "text-gray-700 hover:text-[var(--brand)]"
                 }`
               }
             >
@@ -64,8 +64,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `font-medium transition-colors ${
                   isActive
-                    ? "text-[#4f46e5]"
-                    : "text-gray-700 hover:text-[#4f46e5]"
+                    ? "text-[var(--brand)]"
+                    : "text-gray-700 hover:text-[var(--brand)]"
                 }`
               }
             >
@@ -77,8 +77,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `font-medium transition-colors ${
                   isActive
-                    ? "text-[#4f46e5]"
-                    : "text-gray-700 hover:text-[#4f46e5]"
+                    ? "text-[var(--brand)]"
+                    : "text-gray-700 hover:text-[var(--brand)]"
                 }`
               }
             >
@@ -89,15 +89,15 @@ export default function Navbar() {
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-3">
             <NavLink
-              to={'/signin'}
-              className="px-3 py-1 text-[#4f46e5] font-semibold hover:bg-gray-50 rounded-xl transition-all cursor-pointer"
+              to={"/signin"}
+              className="px-3 py-1 text-[var(--brand)] font-semibold hover:bg-gray-50 rounded-xl transition-all cursor-pointer"
             >
               Sign In
             </NavLink>
 
             <NavLink
-              to={'/signup'}
-              className="px-3 py-1 bg-[#4f46e5] text-white font-semibold rounded-xl cursor-pointer hover:opacity-90 transition-all"
+              to={"/signup"}
+              className="px-3 py-1 bg-[var(--brand)] text-white font-semibold rounded-xl cursor-pointer hover:opacity-90 transition-all"
             >
               Sign Up
             </NavLink>
@@ -150,15 +150,15 @@ export default function Navbar() {
             </NavLink>
 
             <NavLink
-              to={'/signup'}
-              className="w-full px-4 py-2 z-20 bg-[#4f46e5] text-white font-semibold rounded-3xl"
+              to={"/signup"}
+              className="w-full px-4 py-2 z-20 bg-[var(--brand)] text-white font-semibold rounded-3xl"
             >
               Get Started
             </NavLink>
 
             <NavLink
-              to={'/signin'}
-              className="w-full px-3 py-2 z-10 text-[#4f46e5] font-semibold border border-[#4f46e5] rounded-3xl"
+              to={"/signin"}
+              className="w-full px-3 py-2 z-10 text-[var(--brand)] font-semibold border border-[var(--brand)] rounded-3xl"
             >
               Sign In
             </NavLink>

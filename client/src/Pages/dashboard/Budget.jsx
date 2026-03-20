@@ -176,7 +176,7 @@ export default function Budget() {
               </div>
 
               <button
-                className="bg-[#4f46e5] hover:opacity-80 py-3 rounded-xl text-white font-semibold w-full"
+                className="bg-[var(--brand)] hover:opacity-80 py-3 rounded-xl text-white font-semibold w-full"
                 type="submit"
               >
                 Set Budget
@@ -190,9 +190,9 @@ export default function Budget() {
               <div className="h-40 items-center justify-center flex">
                 <p className="flex items-center gap-3.5">
                   Loading
-                  <span className="w-2 h-2 bg-[#4f46e5] rounded-full animate-ping [animation-delay:0ms]"></span>
-                  <span className="w-2 h-2 bg-[#4f46e5] rounded-full animate-ping [animation-delay:200ms]"></span>
-                  <span className="w-2 h-2 bg-[#4f46e5] rounded-full animate-ping [animation-delay:400ms]"></span>
+                  <span className="w-2 h-2 bg-[var(--brand)] rounded-full animate-ping [animation-delay:0ms]"></span>
+                  <span className="w-2 h-2 bg-[var(--brand)] rounded-full animate-ping [animation-delay:200ms]"></span>
+                  <span className="w-2 h-2 bg-[var(--brand)] rounded-full animate-ping [animation-delay:400ms]"></span>
                 </p>
               </div>
             ) : budgets.length === 0 ? (

@@ -1,11 +1,55 @@
 @import "tailwindcss";
 
-body{
-  background-image: url(./assets/Desktop.png);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* z-index: 0; */
-  /* position: relative; */
-  /* height: 100%; */
+:root {
+  --brand: var(--brand);
+  --brand-light: #eef2ff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --bg-card: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+  --border: #e5e7eb;
+  --border-light: #f3f4f6;
+  --success: #22c55e;
+  --success-bg: #f0fdf4;
+  --danger: #ef4444;
+  --danger-bg: #fef2f2;
+}
+
+html.dark {
+  --brand: var(--brand);
+  --brand-light: #1e1b4b;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --bg-card: #1e1e2e;
+  --bg-secondary: #181825;
+  --bg-tertiary: #12121f;
+  --border: #2e2e3e;
+  --border-light: #252535;
+  --success: #22c55e;
+  --success-bg: #052e16;
+  --danger: #ef4444;
+  --danger-bg: #450a0a;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 10% 50%, #f7f7ff 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 10%, #e2d1fe 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 50%, #9fa2ff 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, #3c63ff 0%, transparent 50%), #dcceff;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+html.dark body {
+  background:
+    radial-gradient(ellipse at 10% 50%, #0f0f1a 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 10%, #1a1040 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 50%, #1e1b4b 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, #1a237e 0%, transparent 50%), #0f0f1f;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
