@@ -326,13 +326,48 @@ export const deleteAccount = async (req, res) => {
 
     await User.findByIdAndDelete(userId);
 
-    await Transaction.deleteMany({userId});
+    await Transaction.deleteMany({ userId });
 
-    await Budget.deleteMany({userId});
+    await Budget.deleteMany({ userId });
 
     return res.status(200).json({ message: "Account deleted successd=fully" });
   } catch (error) {
     console.error("Account Delete Error:", error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+export const updateProfile = async (req, res) => {
+  try {
+    const { displayName, name, country, phone } = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      req.userId,
+      {
+        name,
+        displayName,
+        country,
+        phone,
+      },
+      { new: true },
+    );
+
+    return res.status(200).json({
+      message: "Profile Updated Successfully",
+      user: {
+        id: updatedUser._id,
+        name: updatedUser.name,
+        phone: updatedUser.phone,
+        displayName: updatedUser.displayName,
+        email: updatedUser.email,
+        country: updatedUser.country,
+        avatar: updatedUser.avatar,
+        emailVerified: updatedUser.emailVerified,
+        createdAt: updatedUser.createdAt,
+      },
+    });
+  } catch (error) {
+    console.error("PROFILE UPDATE ERROR", error);
     res.status(500).json({ message: "Server Error" });
   }
 };
