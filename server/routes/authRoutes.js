@@ -7,6 +7,7 @@ import {
   resetPassword,
   signin,
   signup,
+  updateProfile,
   uploadAvatar,
   verifyEmail,
 } from "../controller/authController.js";
@@ -24,5 +25,6 @@ router.post("/resend-verification", protect, resendVerification);
 router.post("/upload-avatar", protect, upload.single("avatar"), uploadAvatar);
 router.get("/verifyemail/:token", verifyEmail);
 router.delete('/delete-account', protect, deleteAccount)
+router.put('/update-profile', protect, updateProfile)
 
 export default router;
