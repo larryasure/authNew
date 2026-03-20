@@ -1,6 +1,4 @@
-import { FileExclamationPointIcon } from "lucide-react";
 import React, { createContext, useState } from "react";
-
 export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
@@ -54,7 +52,7 @@ export default function AuthProvider({ children }) {
     }
   };
 
-  const updateProfile = async () => {
+  const updateProfile = async (formData) => {
     setLoading(true);
     setSuccess(null);
     setError(null);
@@ -65,17 +63,17 @@ export default function AuthProvider({ children }) {
       const res = await fetch(`${baseUrl}/update-profile`, {
         method: "PUT",
         headers: {
-          "Content-Type": "appllication/json",
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
 
-        body: JSON.stringify(FormData),
+        body: JSON.stringify(formData),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || "Update Failed");
+        throw new error(data.message || "Update Failed");
       }
 
       localStorage.setItem("user", JSON.stringify(data.user));

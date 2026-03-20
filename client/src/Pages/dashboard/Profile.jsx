@@ -58,8 +58,8 @@ export default function Profile() {
       await updateProfile({
         name: formData.name,
         displayName: formData.displayName,
-        phone: formData.displayName,
         country: formData.country,
+        phone: formData.phone,
       });
 
       setEditMode(false);
@@ -119,7 +119,7 @@ export default function Profile() {
           <div className="text-center">
             <p className="font-bold text-lg">{formData.name}</p>
             <p className="text-sm text-gray-500">
-              @{formData.displayName || "username"}
+              @{formData.displayName }
             </p>
           </div>
 
