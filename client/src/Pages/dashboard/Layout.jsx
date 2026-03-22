@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { data, Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
+import { Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/Sidebar";
 import DashNavbar from "../../Components/DashNavbar";
 import { AuthContext } from "../../Context/AuthContext";
@@ -19,18 +19,18 @@ export default function Layout() {
 
         const [transRes, budgetRes] = await Promise.all([
           fetch(`${apiUrl}/api/transactions`, {
-            headers: { Authoriztion: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
           }),
           fetch(`${apiUrl}/api/budgets`, {
-            headers: { Authoriztion: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
 
         const transData = await transRes.json();
         const budgetData = await budgetRes.json();
 
-        if (transRes.ok) return setTransactions(transData.transactions);
-        if (budgetRes.ok) return setBudgets(budgetData.budgets || []);
+        if (transRes.ok) setTransactions(transData.transactions);
+        if (budgetRes.ok) setBudgets(budgetData.budgets || []);
       } catch (error) {
         console.error("Failed to fetch for Transaction!", error);
       } finally {
@@ -63,7 +63,7 @@ export default function Layout() {
         <main className="flex-1 overflow-y-auto ">
           <div className="p-5">
             <ScrollRestoration />
-            <Outlet context={{ transactions, setTransactions, loading }} />
+            <Outlet context={{ transactions, setTransactions,budgets, setBudgets ,loading }} />
           </div>
         </main>
       </div>
