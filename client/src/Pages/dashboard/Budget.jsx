@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Trash2 } from "lucide-react";
 const categories = [
@@ -14,38 +14,8 @@ const categories = [
 ];
 
 export default function Budget() {
-  const { transactions } = useOutletContext();
-  const [budgets, setBudgets] = useState([]);
+  const { transactions, budgets, setBudgets, loading } = useOutletContext();
   const [form, setForm] = useState({ category: "", amount: "" });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchBudgets = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const apiUrl = import.meta.env.VITE_API_URL;
-
-        const res = await fetch(`${apiUrl}/api/budgets`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const data = await res.json();
-
-        if (res.ok) {
-          setBudgets(data.budgets || []);
-          console.log("STATUS:", res.status);
-          console.log("DATA FROM BACKEND:", data);
-        }
-      } catch (error) {
-        console.error("Failed to fetch budgets", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBudgets();
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -188,7 +158,7 @@ export default function Budget() {
             <h2 className="text-lg font-bold mb-4">Your Budgets</h2>
             {loading ? (
               <div className="h-40 items-center justify-center flex">
-                <p className="flex items-center gap-3.5">
+                <p className="flex items-center gap-3">
                   Loading
                   <span className="w-2 h-2 bg-[var(--brand)] rounded-full animate-ping [animation-delay:0ms]"></span>
                   <span className="w-2 h-2 bg-[var(--brand)] rounded-full animate-ping [animation-delay:200ms]"></span>
@@ -212,7 +182,7 @@ export default function Budget() {
                   return (
                     <div
                       key={budget._id}
-                      className="p-4 border border-gray-100 rounded-xl"
+                      className="p-2 border border-gray-100 rounded-xl"
                     >
                       <div className="flex justify-between items-center mb-2">
                         <div>
@@ -226,7 +196,7 @@ export default function Budget() {
 
                         <button
                           onClick={() => handleDelete(budget._id)}
-                          className="p-2 bg-red-50 hover:text-red-600 text-red-400 rounded-xl transition-all duration-300  "
+                          className="p-2  bg-red-100 hover:text-red-600 text-red-400 rounded-full transition-all duration-300  "
                         >
                           <Trash2 />
                         </button>
