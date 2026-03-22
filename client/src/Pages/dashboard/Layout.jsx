@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
+import { data, Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/Sidebar";
 import DashNavbar from "../../Components/DashNavbar";
 import { AuthContext } from "../../Context/AuthContext";
 
 export default function Layout() {
   const [transactions, setTransactions] = useState([]);
+  const [budgets, setBudgets] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTrasaction = async () => {
@@ -16,16 +17,20 @@ export default function Layout() {
         const token = localStorage.getItem("token");
         const apiUrl = import.meta.env.VITE_API_URL;
 
-        const res = await fetch(`${apiUrl}/api/transactions`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const data = await res.json();
+        const [transRes, budgetRes] = await Promise.all([
+          fetch(`${apiUrl}/api/transactions`, {
+            headers: { Authoriztion: `Bearer ${token}` },
+          }),
+          fetch(`${apiUrl}/api/budgets`, {
+            headers: { Authoriztion: `Bearer ${token}` },
+          }),
+        ]);
 
-        if (res.ok) {
-          setTransactions(data.transactions);
-        }
+        const transData = await transRes.json();
+        const budgetData = await budgetRes.json();
+
+        if (transRes.ok) return setTransactions(transData.transactions);
+        if (budgetRes.ok) return setBudgets(budgetData.budgets || []);
       } catch (error) {
         console.error("Failed to fetch for Transaction!", error);
       } finally {
@@ -40,15 +45,17 @@ export default function Layout() {
       <Sidebar />
 
       <div className="flex flex-1 flex-col overflow-hidden h-screen">
-        <DashNavbar />
+        <DashNavbar budgets={budgets} transactions={transactions} />
         {!user?.emailVerified && (
           <div className="flex items-center justify-between bg-yellow-50 border-b border-yellow-200 px-6 py-2.5  ">
             <p className="text-yellow-700 text-sm font-semibold ">
-             Hey {user?.name?.split(' ')[0] },  Email  not Verified. Check your box or resend link the link.
+              Hey {user?.name?.split(" ")[0]}, Email not Verified. Check your
+              box or resend link the link.
             </p>
             <button
-              onClick={() => navigate('/dashboard/settings')}
-              className="text-yellow-700 text-xs font-semibold underline cursor-pointer active:text-bold" >
+              onClick={() => navigate("/dashboard/settings")}
+              className="text-yellow-700 text-xs font-semibold underline cursor-pointer active:text-bold"
+            >
               Go back to Profile
             </button>
           </div>
@@ -63,4 +70,3 @@ export default function Layout() {
     </div>
   );
 }
-

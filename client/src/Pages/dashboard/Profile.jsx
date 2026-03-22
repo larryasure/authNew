@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
-import { CalendarDays, LocateFixed, Mail } from "lucide-react";
+import { Calendar, Calendar1, CalendarDays, Locate, LocateFixed, Mail, MapPin } from "lucide-react";
 
 export default function Profile() {
   const { user, setUser, updateProfile } = useContext(AuthContext);
@@ -69,7 +69,7 @@ export default function Profile() {
   };
 
   const createdDate = new Date(formData.createdAt).toLocaleDateString("en-US", {
-    month: "long",
+    month: "short",
     year: "numeric",
   });
 
@@ -101,6 +101,7 @@ export default function Profile() {
 
       <div className="grid lg:grid-cols-3 gap-8 sm:grid-cols-1">
         {/* LEFT CARD */}
+        
         <div className="bg-white cursor-pointer rounded-2xl p-6 shadow-sm hover:shadow-xl duration-200 transition-all space-y-8 border border-gray-100 h-100">
           <img
             src={formData.avatar || "https://i.pravatar.cc/150"}
@@ -123,12 +124,12 @@ export default function Profile() {
 
           <div className="text-sm text-gray-600 space-y-1">
             <div className="flex items-center gap-1.5">
-              <LocateFixed className="w-4 h-4" />
+              <MapPin className="w-4 h-4 shrink-0" />
               <span>{formData.country}</span>
             </div>
 
             <div className="flex items-center gap-1.5">
-              <CalendarDays className="w-4 h-4" />
+              <Calendar1 className="w-4 h-4 shrink-0" />
               <span>Joined {createdDate}</span>
             </div>
 
