@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+
 export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
@@ -100,6 +101,14 @@ export default function AuthProvider({ children }) {
     setError(null);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+
+    // localStorage.removeItem(`accentColor_${currentUserId}`);
+    // localStorage.removeItem(`theme_${currentUserId}`);
+    // localStorage.removeItem(`fontSize_${currentUserId}`);
+
+    // document.documentElement.style.setProperty('--brand', '#4f46e5');
+    // document.documentElement.style.fontSize = '16px';
+    // document.documentElement.classList.remove('dark');
   };
 
   return (

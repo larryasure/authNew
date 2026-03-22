@@ -370,4 +370,4 @@ export const updateProfile = async (req, res) => {
     console.error("PROFILE UPDATE ERROR", error);
     res.status(500).json({ message: "Server Error" });
   }
-};
+}

@@ -19,11 +19,11 @@ export default function Sidebar() {
   return (
     <>
       <div
-        className={` relative flex shrink-0 h-screen transition-all  flex-col shadow-sm  border-gray-200 border-r ${isOpen ? "w-52" : "w-18"} `}
+        className={` relative flex shrink-0 bg-white/50 h-screen transition-all  flex-col shadow-sm  border-gray-200 border-r ${isOpen ? "w-52" : "w-18"} `}
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
           {isOpen && (
-            <p className="text-lg font-bold bg-linear-to-r from-[var(--brand)] to-[#46ef9d] bg-clip-text text-transparent ">
+            <p className="text-lg font-bold bg-linear-to-r from-[var(--brand)] to-[#4695ef] bg-clip-text text-transparent ">
               Sloth
             </p>
           )}
@@ -115,7 +115,7 @@ export default function Sidebar() {
             to={"/dashboard/settings"}
             title="Settings"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2 shadow-xs rounded-lg font-medium transition-all ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[#464fe5]" : "text-gray-500 hover:bg-gray-100 hover:text-[var(--brand)]"}`
+              `flex items-center gap-3 px-3 py-2 shadow-xs rounded-lg font-medium transition-all ${isOpen ? "justify-start" : "justify-center"} ${isActive ? "text-white bg-[var(--brand)]" : "text-gray-500 hover:bg-gray-100 hover:text-[var(--brand)]"}`
             }
           >
             <Settings className="shrink-0 w-5 h-5 " />

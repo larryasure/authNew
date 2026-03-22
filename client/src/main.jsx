@@ -30,6 +30,7 @@ import Appearances from "./Pages/Settings/Appearances.jsx";
 import Billing from "./Pages/Settings/Billing.jsx";
 import ResetPassword from "./Pages/ResetPassword.jsx";
 import VerifyEmail from "./Pages/VerifyEmail.jsx";
+import ThemeProvider from "./Context/ThemeContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -82,7 +83,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <AuthModalProvider>
-        <RouterProvider router={router} />
+        <ThemeProvider>
+          <RouterProvider router={router} />
+        </ThemeProvider>
       </AuthModalProvider>
     </AuthProvider>
   </StrictMode>,
