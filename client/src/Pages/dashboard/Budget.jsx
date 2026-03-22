@@ -190,7 +190,7 @@ export default function Budget() {
                             {budget.category}
                           </p>
                           <p className="text-gray-500 text-xs ">
-                            ${spent} of {budget.amount}
+                            ${spent} of ${budget.amount}
                           </p>
                         </div>
 
