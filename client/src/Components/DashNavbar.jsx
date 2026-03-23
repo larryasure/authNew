@@ -124,7 +124,7 @@ export default function DashNavbar({ budgets = [], transactions = [] }) {
                     <button
                       key={tab}
                       onClick={() => setActiveTabs(tab)}
-                      className={`flex-1 py-2 font-medium transition-all capitalize duration-200 ${activeTabs === tab ? "text-[var(--brand)] border-b-2 border-[var(--brand)] " : "text-gray-400 hover:text-gray-600"} `}
+                      className={`flex-1 py-2 font-medium transition-all capitalize duration-200 cursor-pointer ${activeTabs === tab ? "text-[var(--brand)] border-b-2 border-[var(--brand)] " : "text-gray-400 hover:text-gray-600"} `}
                     >
                       {activeTabs === "unread"
                         ? `Unread (${displayUnreadCount})`
@@ -133,8 +133,57 @@ export default function DashNavbar({ budgets = [], transactions = [] }) {
                   ))}
                 </div>
 
-                <div>
-                  
+                <div className="max-h-72 mx-auto overflow-y-auto py-3">
+                  {filtered.length === 0 ? (
+                    <div className="flex items-center justify-center py-5 text-sm text-gray-400 ">
+                      No Notifications here
+                    </div>
+                  ) : (
+                    filtered.map((notif) => {
+                      const styleMap = {
+                        danger: { bg: "bg-red-50", color: "text-red-500" },
+
+                        warning: {
+                          bg: "bg-yellow-50",
+                          color: "text-yellow-500",
+                        },
+
+                        success: { bg: "bg-green-50", color: "text-green-500" },
+
+                        info: {
+                          bg: "bg-[#eef2ff]",
+                          color: "text-[var(--brand)]",
+                        },
+                      };
+
+                      const style = styleMap[notif.type] || styleMap.info;
+                      return (
+                        <div
+                          key={notif.id}
+                          className={`flex gap-3 px-4 py-2.5 border-b border-gray-50 transition-all duration-200 ${!notif.read ? "bg-[#f5f4ff]" : "hover:bg-gray-50"} `}
+                        >
+                          <div
+                            className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${style.bg} ${style.color}`}
+                          >
+                            <Bell className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-xs font-semibold  text-gray-800 ">
+                              {notif.title}
+                            </p>
+                            <p className="text-xs text-gray-500 capitalize mt-0.5 leading-relaxed ">
+                              {notif.description}
+                            </p>
+                            <p className="text-[11px] mt-1 ">{notif.time}</p>
+                          </div>
+
+                          {!notif.read && (
+                            <div className="w-2 h-2 rounded-full  bg-[var(--brand)] shrink-0 mt-0 "></div>
+                          )}
+                        </div>
+                      );
+                    })
+                  )}
                 </div>
               </div>
             )}

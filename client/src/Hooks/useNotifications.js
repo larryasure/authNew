@@ -16,7 +16,7 @@ export function useNotifications(budgets = [], transactions = []) {
           id: `budget-exceeded-${budget._id}`,
           type: "danger",
           title: "Budget Exceeded",
-          description: `You have gone over your ${budget.category} by $${(spent - budget.amount).toFixed(2)}`,
+          description: `You have gone over your ${budget.category} budget by $${(spent - budget.amount).toFixed(2)}`,
           time: "Now",
           read: false,
         });
