@@ -1,4 +1,4 @@
-import { Bell, Disc, LogOut, Menu, Settings, X } from "lucide-react";
+import { ArrowRight, Bell, LogOut, Menu, Settings, X } from "lucide-react";
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
@@ -8,7 +8,10 @@ export default function DashNavbar({ budgets = [], transactions = [] }) {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
-  const [readIds, setReadIds] = useState([]);
+  const [readIds, setReadIds] = useState(() => {
+    const stored = localStorage.getItem("readNotifIds");
+    return stored ? JSON.parse(stored) : [];
+  });
   const [activeTabs, setActiveTabs] = useState("all");
 
   const navigate = useNavigate();
@@ -38,8 +41,16 @@ export default function DashNavbar({ budgets = [], transactions = [] }) {
         : displayNotification;
 
   const markAllread = () => {
-    setReadIds(notifications.map((n) => n.id));
+    const ids = notifications.map((n) => n.id);
+    setReadIds(ids);
+    localStorage.setItem("readNotifIds", JSON.stringify(ids));
   };
+
+  const markOneAsRead = (id) => {
+    const updated = [...readIds, id]
+    setReadIds(updated)
+    localStorage.setItem("readNotifIds", JSON.stringify(updated))
+  }
 
   useEffect(() => {
     function handleOutsideClick(e) {
@@ -120,13 +131,13 @@ export default function DashNavbar({ budgets = [], transactions = [] }) {
                   </button>
                 </div>
                 <div className="flex border-b border-gray-100 ">
-                  {["tab", "unread", "system"].map((tab) => (
+                  {["all", "unread", "system"].map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTabs(tab)}
                       className={`flex-1 py-2 font-medium transition-all capitalize duration-200 cursor-pointer ${activeTabs === tab ? "text-[var(--brand)] border-b-2 border-[var(--brand)] " : "text-gray-400 hover:text-gray-600"} `}
                     >
-                      {activeTabs === "unread"
+                      {tab === "unread"
                         ? `Unread (${displayUnreadCount})`
                         : tab}
                     </button>
@@ -159,6 +170,7 @@ export default function DashNavbar({ budgets = [], transactions = [] }) {
                       const style = styleMap[notif.type] || styleMap.info;
                       return (
                         <div
+                          onClick={() => markOneAsRead(notif.id)}
                           key={notif.id}
                           className={`flex gap-3 px-4 py-2.5 border-b border-gray-50 transition-all duration-200 ${!notif.read ? "bg-[#f5f4ff]" : "hover:bg-gray-50"} `}
                         >
@@ -184,6 +196,18 @@ export default function DashNavbar({ budgets = [], transactions = [] }) {
                       );
                     })
                   )}
+                </div>
+                <div className="py-4 border-t flex   justify-center border-gray-100 ">
+                  <button
+                    onClick={() => {
+                      navigate("/dashboard/settings/notifications");
+                      setIsNotifOpen(false);
+                    }}
+                    className="text-xs cursor-pointer flex items-center gap-1.5 justify-center font-semibold hover:underline text-[var(--brand)]"
+                  >
+                    Notifications Settings
+                    <ArrowRight className="w-4 h-4 hover:underline" />
+                  </button>
                 </div>
               </div>
             )}
