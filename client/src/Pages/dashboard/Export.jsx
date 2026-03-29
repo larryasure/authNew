@@ -79,7 +79,7 @@ export default function Export() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("Download", "sloth-transaction.csv");
+    link.setAttribute("download", "sloth-transaction.csv");
 
     document.body.appendChild(link);
     link.click();

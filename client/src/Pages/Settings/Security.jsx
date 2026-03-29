@@ -16,6 +16,7 @@ export default function Security() {
     newPassword: "",
     confirmPassword: "",
   });
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [confirmEmail, setConfirmEmail] = useState("");
 
@@ -175,7 +176,7 @@ export default function Security() {
                 <img
                   src={password}
                   alt="password png"
-                  className="absolute top-1/2 -translate-y-1/2 left-3 "
+                  className="absolute top-1/2 -translate-y-1/2 left-3"
                 />
 
                 <input

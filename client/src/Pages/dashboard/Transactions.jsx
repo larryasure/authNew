@@ -1,10 +1,92 @@
-import { Trash2 } from "lucide-react";
+import { Trash2, X } from "lucide-react";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 export default function Transactions() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState("");
+  const [filterType, setFilterType] = useState("All");
+  const [filterCategory, setFilterCategory] = useState("All");
+  const [selectedTransactions, setSelectedTransactions] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editForm, setEditForm] = useState({});
+  const [updateLoading, setUpdateLoading] = useState(false);
+  const [updateError, setUpdateError] = useState(null);
+
   const { transactions, setTransactions, loading } = useOutletContext();
+
+  const openModal = (transaction) => {
+    setSelectedTransactions(transaction);
+    setEditForm({
+      description: transaction.description,
+      category: transaction.category,
+      amount: transaction.amount,
+      type: transaction.type,
+      date: transaction.date,
+    });
+    setIsEditing(false);
+    setUpdateError(null);
+    setIsModalOpen(false);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedTransactions(null);
+    setIsEditing(false);
+    setUpdateError(null);
+  };
+
+  const handleUpdate = async () => {
+    if (
+      !editForm.description ||
+      !editForm.category ||
+      !editForm.amount ||
+      !editForm.date
+    ) {
+      setUpdateError("All fileds are required");
+      return;
+    }
+
+    try {
+      setUpdateLoading(true);
+      const token = localStorage.getItem("token");
+      const apiUrl = import.meta.env.VITE_API_URL;
+
+      const res = await fetch(
+        `${apiUrl}/api/tranasactions/${selectedTransactions._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            ...editForm,
+            amount: parseFloat(editForm.amount),
+          }),
+        },
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        selectedTransactions(
+          transactions.map((t) =>
+            t._id === selectedTransactions._id ? data.transaction : t,
+          ),
+        );
+        closeModal();
+      } else {
+        setUpdateError(data.message || "Update Failed");
+      }
+    } catch (error) {
+      setUpdateError("Something Went Wrong, Try Again!");
+      console.error(error);
+    } finally {
+      setUpdateLoading(false);
+    }
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -26,12 +108,26 @@ export default function Transactions() {
     }
   };
 
+  const filtered = transactions.filter((t) => {
+    const matchSearch =
+      t.description.toLowerCase().includes(search.toLowerCase()) ||
+      t.category.toLowerCase().includes(search.toLowerCase());
+
+    const matchType = filterType === "All" || t.type === filterType;
+    const matchCategory =
+      filterCategory === "All" || t.category === filterCategory;
+
+    return matchSearch && matchType && matchCategory;
+  });
+
+  const categories = [...new Set(transactions.map((t) => t.category))];
+
   const pageSize = 10;
-  const totalPages = Math.ceil(transactions.length / pageSize);
+  const totalPages = Math.ceil(filtered.length / pageSize);
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-  const currentTransaction = transactions.slice(startIndex, endIndex);
+  const currentTransaction = filtered.slice(startIndex, endIndex);
 
   const totalIncome = transactions
     .filter((t) => t.type === "Income")
@@ -85,6 +181,61 @@ export default function Transactions() {
           </div>
         </div>
 
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 flex flex-wrap items-center gap-3">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setCurrentPage(1);
+            }}
+            placeholder="Search Transactions..."
+            className="flex-1 min-w-48 px-4 py-2 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-[#b0aedf] focus:border-0 transition-all duration-300"
+          />
+
+          <select
+            value={filterType}
+            onChange={(e) => {
+              setFilterType(e.target.value);
+              setCurrentPage(1);
+            }}
+            className="px-4 py-2 border border-gray-200 rounded-xl text-sm outline-none cursor-pointer transition-all duration-300 focus:ring-2 focus:ring-[#b0aedf] "
+          >
+            <option value="All">All Types</option>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+          </select>
+
+          <select
+            value={filterCategory}
+            onChange={(e) => {
+              setFilterCategory(e.target.value);
+              setCurrentPage(1);
+            }}
+            className="px-4 py-2 text-sm rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 focus:ring-2 focus:ring-[#b0aedf]"
+          >
+            <option value="All">All Categories</option>
+            {categories.map((cat) => (
+              <option value={cat} key={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+
+          {(search || filterType !== "All" || filterCategory !== "All") && (
+            <button
+              onClick={() => {
+                setSearch("");
+                setFilterType("All");
+                setFilterCategory("All");
+                setCurrentPage(1);
+              }}
+              className="px-4 py-2 cursor-pointer font-semibold text-red-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all duration-300"
+            >
+              Clear Filters
+            </button>
+          )}
+        </div>
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <table className="w-full  text-sm">
             <thead className="bg-gray-50 text-gray-500 uppercase text-xs ">
@@ -162,6 +313,13 @@ export default function Transactions() {
           </button>
         </div>
       </div>
+      {isModalOpen && selectedTransactions && (
+        <div
+          className="fixed bg-black/40 z-50 inset-0 flex items-start justify-center px-4"
+          onClick={closeModal}
+          
+        ></div>
+      )}
     </>
   );
 }
