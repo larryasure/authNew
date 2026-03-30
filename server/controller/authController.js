@@ -30,7 +30,7 @@ export const signup = async (req, res) => {
       expiresIn: "1d",
     });
 
-    const verifyLink = `http://localhost:5173/verifyemail/${verifyToken}`;
+    const verifyLink = `${process.env.CLIENT_URL}/verifyemail/${verifyToken}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
@@ -128,7 +128,7 @@ export const forgotPassword = async (req, res) => {
       { new: true },
     );
 
-    const resetLink = `http://localhost:5173/resetpassword/${resetToken}`;
+    const verifyLink = `${process.env.CLIENT_URL}/verifyemail/${verifyToken}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
@@ -145,7 +145,7 @@ export const forgotPassword = async (req, res) => {
       We received a request to reset your password. Click the button below to choose a new one.
     </p>
 
-    <a href="${resetLink}" style="display: inline-block; margin: 24px 0; background-color: #var(--brand)); color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
+    <a href="${}" style="display: inline-block; margin: 24px 0; background-color: #var(--brand)); color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
       Reset Password
     </a>
 
@@ -263,13 +263,13 @@ export const resendVerification = async (req, res) => {
       expiresIn: "1d",
     });
 
-    const verifyLink = `http://localhost:5173/verifyemail/${verifyToken}`;
+    const verifyLink = `${process.env.CLIENT_URL}/verifyemail/${verifyToken}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: user.email,
       subject: "Verify Your Email",
-      html: `
+      html:`
       
       <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; border: 1px solid #e5e7eb; border-radius: 16px;">
           <h1 style="color: #var(--brand)); font-size: 24px; margin-bottom: 4px;">Sloth</h1>
@@ -370,4 +370,4 @@ export const updateProfile = async (req, res) => {
     console.error("PROFILE UPDATE ERROR", error);
     res.status(500).json({ message: "Server Error" });
   }
-}
+};

@@ -4,10 +4,10 @@ import jwt from "jsonwebtoken";
 export const protect = (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1];
 
-  if (!token) return res.status(401).json({
-    message:
-      "Not Authorized"
-  });
+  if (!token)
+    return res.status(401).json({
+      message: "Not Authorized",
+    });
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -35,7 +35,9 @@ export const addTransaction = async (req, res) => {
 
     await transaction.save();
 
-    res.status(201).json({ message: "Transaction Added Successfully!" , transaction});
+    res
+      .status(201)
+      .json({ message: "Transaction Added Successfully!", transaction });
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
@@ -95,5 +97,32 @@ export const monthlyData = async (req, res) => {
     res.status(200).json({ monthlyData: result });
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
+  }
+};
+
+export const updateTransaction = async (req, res) => {
+  try {
+    const transaction = await Transaction.findById(req.params.id);
+
+    if (!transaction)
+      return res.status(404).json({ message: "Transaction not found" });
+
+    if (transaction.userId.toString() !== req.userId.toString())
+      return res.status(403).json({ message: "Not allowed" });
+
+    const { description, category, amount, type, date } = req.body;
+
+    transaction.description = description;
+    transaction.category = category;
+    transaction.amount = amount;
+    transaction.type = type;
+    transaction.date = date;
+
+    await transaction.save();
+
+    res.status(200).json({ message: "Transaction updated", transaction });
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+    console.error(error);
   }
 };
