@@ -106,6 +106,67 @@ export const signin = async (req, res) => {
   }
 };
 
+// export const forgotPassword = async (req, res) => {
+//   try {
+//     const { email } = req.body;
+
+//     if (!email) return res.status(400).json({ message: "Email is required" });
+
+//     const user = await User.findOne({ email });
+//     if (!user) return res.status(404).json({ message: "User not found!" });
+
+//     const resetToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+//       expiresIn: "15m",
+//     });
+
+//     await User.findByIdAndUpdate(
+//       user._id,
+//       {
+//         resetToken: resetToken,
+//         resetTokenExpiry: new Date(Date.now() + 15 * 60 * 1000),
+//       },
+//       { new: true },
+//     );
+
+//     const verifyLink = `${process.env.CLIENT_URL}/verifyemail/${verifyToken}`;
+
+//     await transporter.sendMail({
+//       from: process.env.EMAIL_USER,
+//       to: email,
+//       subject: "Password  Reset Request",
+//       html: `
+//   <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; border: 1px solid #e5e7eb; border-radius: 16px;">
+    
+//     <h1 style="color: #var(--brand)); font-size: 24px; margin-bottom: 4px;">Sloth</h1>
+//     <hr style="border: none; border-top: 1px solid #e5e7eb; margin-bottom: 24px;" />
+    
+//     <h2 style="font-size: 20px; color: #111827;">Reset Your Password</h2>
+//     <p style="color: #6b7280; font-size: 15px;">
+//       We received a request to reset your password. Click the button below to choose a new one.
+//     </p>
+
+//     <a href="${}" style="display: inline-block; margin: 24px 0; background-color: #var(--brand)); color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
+//       Reset Password
+//     </a>
+
+//     <p style="color: #6b7280; font-size: 13px;">
+//       This link expires in <strong>15 minutes</strong>. If you didn't request this, you can safely ignore this email.
+//     </p>
+
+//     <hr style="border: none; border-top: 1px solid #e5e7eb; margin-top: 24px;" />
+//     <p style="color: #9ca3af; font-size: 12px;">© ${new Date().getFullYear()} Sloth. All rights reserved.</p>
+//   </div>
+// `,
+//     });
+
+//     return res
+//       .status(201)
+//       .json({ message: "Password Reset Link sent to your Email" });
+//   } catch (error) {
+//     console.error("FORGOT PASSWORD ERROR", error);
+//     return res.status(500).json({ message: "Server Error" });
+//   }
+// };
 export const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
@@ -119,51 +180,31 @@ export const forgotPassword = async (req, res) => {
       expiresIn: "15m",
     });
 
-    await User.findByIdAndUpdate(
-      user._id,
-      {
-        resetToken: resetToken,
-        resetTokenExpiry: new Date(Date.now() + 15 * 60 * 1000),
-      },
-      { new: true },
-    );
+    await User.findByIdAndUpdate(user._id, {
+      resetToken,
+      resetTokenExpiry: new Date(Date.now() + 15 * 60 * 1000),
+    });
 
-    const verifyLink = `${process.env.CLIENT_URL}/verifyemail/${verifyToken}`;
+    const verifyLink = `${process.env.CLIENT_URL}/resetpassword/${resetToken}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
-      subject: "Password  Reset Request",
+      subject: "Password Reset Request",
       html: `
-  <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; border: 1px solid #e5e7eb; border-radius: 16px;">
-    
-    <h1 style="color: #var(--brand)); font-size: 24px; margin-bottom: 4px;">Sloth</h1>
-    <hr style="border: none; border-top: 1px solid #e5e7eb; margin-bottom: 24px;" />
-    
-    <h2 style="font-size: 20px; color: #111827;">Reset Your Password</h2>
-    <p style="color: #6b7280; font-size: 15px;">
-      We received a request to reset your password. Click the button below to choose a new one.
-    </p>
-
-    <a href="${}" style="display: inline-block; margin: 24px 0; background-color: #var(--brand)); color: white; padding: 12px 28px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 15px;">
-      Reset Password
-    </a>
-
-    <p style="color: #6b7280; font-size: 13px;">
-      This link expires in <strong>15 minutes</strong>. If you didn't request this, you can safely ignore this email.
-    </p>
-
-    <hr style="border: none; border-top: 1px solid #e5e7eb; margin-top: 24px;" />
-    <p style="color: #9ca3af; font-size: 12px;">© ${new Date().getFullYear()} Sloth. All rights reserved.</p>
-  </div>
-`,
+        <div>
+          <h2>Reset Your Password</h2>
+          <p>Click below:</p>
+          <a href="${verifyLink}">Reset Password</a>
+        </div>
+      `,
     });
 
-    return res
-      .status(201)
-      .json({ message: "Password Reset Link sent to your Email" });
+    return res.status(200).json({
+      message: "Password Reset Link sent to your Email",
+    });
   } catch (error) {
-    console.error("FORGOT PASSWORD ERROR", error);
+    console.error("FORGOT PASSWORD ERROR:", error.message);
     return res.status(500).json({ message: "Server Error" });
   }
 };
