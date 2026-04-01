@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   TrendingUp,
   UserCircle,
+  X,
 } from "lucide-react";
 import React from "react";
 
@@ -309,35 +310,83 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="my-10 max-w-4xl py-10 ">
-            <div className="grid grid-cols-3 gap-6 px-8">
-              <div className="grid-cols-1 bg-white p-6  rounded-xl border border-gray-300 shadow-md flex flex-col items-start ">
+          <div className="my-10 max-w-3xl py-10 mx-auto ">
+            <div className="grid grid-cols-3 gap-9 px-8">
+              <div className="grid-cols-1 bg-white px-4 py-5 space-y-2  rounded-xl border border-gray-300 shadow-md flex flex-col items-start ">
                 <p className="text-lg  text-gray-700 ">Free</p>
                 <h1 className="text-4xl font-bold">0$</h1>
                 <p className=" text-gray-600">Forever free</p>
 
-                <div className="mt-7">
+                <div className="mt-7 space-y-2">
                   <div className="flex items-center gap-3">
                     <Check className="w-4 h-4 text-[var(--brand)]" />
                     <p>50 transactions/month</p>
                   </div>
-
                   <div className="flex items-center gap-3">
                     <Check className="w-4 h-4 text-[var(--brand)]" />
                     <p>Basic Charts</p>
                   </div>
-
                   <div className="flex items-center gap-3">
                     <Check className="w-4 h-4 text-[var(--brand)]" />
                     <p>3 Budget Categories</p>
                   </div>
+                  <div className="flex items-center gap-3">
+                    <X className="w-4 h-4 text-red-500" />
+                    <p>CSV export</p>
+                  </div>
+                </div>
+              </div>
 
+              <div className="grid-cols-1 bg-white px-4 py-5 space-y-2 rounded-2xl shadow-md flex flex-col items-start relative border-2 border-[var(--brand)]  hover:shadow-lg duration-200 transition-all">
+                <p className="absolute -top-2.5 text-center py-0.5 left-1/2  -translate-x-1/2 bg-[var(--brand)] text-white px-3 rounded-2xl text-xs font-semibold z-10">
+                  Most Popular
+                </p>
+                <p className="text-lg  text-gray-700 ">Free</p>
+                <h1 className="text-4xl font-bold">5$</h1>
+                <p className=" text-gray-600">per Month</p>
+
+                <div className="mt-7 space-y-2">
                   <div className="flex items-center gap-3">
                     <Check className="w-4 h-4 text-[var(--brand)]" />
-                    <p>50 transactions/month</p>
+                    <p>Unlimited transactions</p>
                   </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-[var(--brand)]" />
+                    <p>All Charts + Reports</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-[var(--brand)]" />
+                    <p>Unlimited Budgets</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-[var(--brand)]" />
+                    <p>CSV export</p>
+                  </div>
+                </div>
+              </div>
 
-                  
+              <div className="grid-cols-1 bg-white px-4 py-5 space-y-2  rounded-xl border border-gray-300 shadow-md flex flex-col items-start ">
+                <p className="text-lg  text-gray-700 ">Team</p>
+                <h1 className="text-4xl font-bold">12$</h1>
+                <p className=" text-gray-600">Per month</p>
+
+                <div className="mt-7 space-y-2">
+                  <div className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-[var(--brand)]" />
+                    <p>Everything in Pro</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-[var(--brand)]" />
+                    <p>Up to 5 members</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-[var(--brand)]" />
+                    <p>Shared Dashboards </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-[var(--brand)]" />
+                    <p>Priority Support </p>
+                  </div>
                 </div>
               </div>
             </div>

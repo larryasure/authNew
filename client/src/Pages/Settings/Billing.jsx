@@ -90,7 +90,7 @@ export default function Billing() {
             <div className="flex flex-col gap-0.5 mt-1 ">
               <h3 className="font-semibold text-xl text-gray-800">Pro</h3>
               <p className="font-semibold text-2xl">
-                $9{" "}
+                $5{" "}
                 <span className="font-normal text-base text-gray-600">
                   / month
                 </span>
@@ -148,7 +148,7 @@ export default function Billing() {
             <div className="flex flex-col gap-0.5">
               <h3 className="font-semibold text-xl text-gray-800 ">Business</h3>
               <p className="font-semibold text-2xl">
-                $29{" "}
+                $12{" "}
                 <span className="font-normal text-base text-gray-600">
                   / month
                 </span>
