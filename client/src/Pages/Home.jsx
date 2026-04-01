@@ -1,8 +1,10 @@
 import {
   AlignHorizontalDistributeCenter,
   ArrowLeftRight,
+  ArrowUp,
   BriefcaseBusiness,
   Check,
+  ChevronUp,
   Download,
   Hamburger,
   House,
@@ -11,7 +13,7 @@ import {
   UserCircle,
   X,
 } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 
 const faqs = [
   {
@@ -50,8 +52,17 @@ const faqs = [
   },
 ];
 
-
 export default function Home() {
+  const [openId, setOpenId] = useState(null);
+
+  const faqToggle = (id) => {
+    if (openId === id) {
+      setOpenId(null);
+    } else {
+      setOpenId(id);
+    }
+  };
+
   return (
     <>
       <div className="px-8 min-h-screen my-15 ">
@@ -348,8 +359,8 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="my-10 max-w-3xl py-10 mx-auto ">
-            <div className="grid grid-cols-3 gap-9 px-8">
+          <div className="my-10 max-w-xs  sm:max-w-3xl py-10 mx-auto ">
+            <div className="grid sm:grid-cols-3 gap-9 px-8 grid-cols-1 ">
               <div className="grid-cols-1 bg-white px-4 py-5 space-y-2  rounded-xl border border-gray-300 shadow-md flex flex-col items-start ">
                 <p className="text-lg  text-gray-700 ">Free</p>
                 <h1 className="text-4xl font-bold">0$</h1>
@@ -431,7 +442,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-gray-50 max-w-7xl mx-auto my-15 p-8">
+        <div className="bg-gray-50 max-w-7xl mx-auto my-15 p-8 rounded-2xl">
           <div className="text-center">
             <p className="text-[var(--brand)]   font-semibold tracking-widest   text-lg">
               FAQ
@@ -439,6 +450,45 @@ export default function Home() {
             <h2 className="text-gray-800 font-semibold text-3xl">
               Common Questions
             </h2>
+          </div>
+
+          {faqs.map((faq) => (
+            <div
+              key={faq.id}
+              onClick={() => faqToggle(faq.id)}
+              className="py-3.5 space-y-0.5 border-b border-gray-200 "
+            >
+              <div className="flex items-center justify-between group cursor-pointer  transition-all duration-300 ">
+                <h3 className="text-lg text-gray-800 font-semibold  group-hover:text-[var(--brand)]">
+                  {faq.question}
+                </h3>
+
+                <ChevronUp
+                  className={`w-5 h-5 transition-transform duration-300 ${openId === faq.id ? "rotate-180 duration-300" : ""}`}
+                />
+              </div>
+
+              <div
+                className={`overflow-hidden transition-all duration-300 ${openId === faq.id ? "max-h-40 " : "max-h-0 duration-300"}   `}
+              >
+                <p className="text-gray-600 ">{faq.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-white max-w-7xl mx-auto py-10 my-15  rounded-xl ">
+          <div className="max-w-5xl mx-auto p-5 text-center ">
+            <h1 className="text-6xl font-medium text-gray-700">
+              Ready to take control of your Money?
+            </h1>
+
+            <div className="max-w-xl mx-auto p-5 text-center">
+              <p className="text-gray-500 leading-relaxed mt-1  text-lg">
+                Join thousands of people using Sloth to track spending, set
+                budgets, and build better financial habits.
+              </p>
+            </div>
           </div>
         </div>
       </div>
