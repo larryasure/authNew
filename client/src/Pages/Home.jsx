@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const faqs = [
   {
@@ -78,12 +79,19 @@ export default function Home() {
           </p>
 
           <div className="mt-5 flex gap-4 items-center justify-center ">
-            <button className="border border-gray-600 bg-[var(--brand)] text-white hover:text-black px-6 py-3 rounded-lg hover:bg-gray-100 cursor-pointer transition-all duration-200  font-medium    ">
-              Get Started Free
-            </button>
-            <button className="border border-gray-400  text-gray-700 px-5 py-3 rounded-lg  hover:bg-gray-100 cursor-pointer transition-all duration-200 font-medium    ">
-              See how it Works
-            </button>
+            <NavLink to={"/signup"}>
+              <button className="border border-gray-600 bg-[var(--brand)] text-white hover:text-black px-6 py-3 rounded-lg hover:bg-gray-100 cursor-pointer transition-all duration-200  font-medium    ">
+                Get Started Free
+              </button>
+            </NavLink>
+
+            <NavLink
+              to={'/feature'}
+            >
+              <button className="border border-gray-400  text-gray-700 px-5 py-3 rounded-lg  hover:bg-gray-100 cursor-pointer transition-all duration-200 font-medium    ">
+                See how it Works
+              </button>
+            </NavLink>
           </div>
         </div>
 
@@ -437,7 +445,7 @@ export default function Home() {
 
         <div className="bg-gray-50 max-w-7xl mx-auto my-15 p-8 rounded-2xl">
           <div className="text-center">
-            <p className="text-[var(--brand)]   font-semibold tracking-widest   text-lg">
+            <p className="text-[var(--brand)]   font-semibold tracking-widest   text-xl">
               FAQ
             </p>
             <h2 className="text-gray-800 font-semibold text-3xl">
@@ -471,8 +479,8 @@ export default function Home() {
         </div>
 
         <div className="bg-white max-w-7xl mx-auto py-10 my-15  rounded-xl ">
-          <div className="max-w-5xl mx-auto p-5 text-center ">
-            <h1 className="sm:text-6xl text-3xl  font-medium text-gray-700">
+          <div className="max-w-3xl mx-auto p-5 text-center ">
+            <h1 className="sm:text-5xl text-3xl  font-medium text-gray-700">
               Ready to take control of your Money?
             </h1>
 
@@ -482,9 +490,7 @@ export default function Home() {
                 budgets, and build better financial habits.
               </p>
 
-              <NavLink
-              
-              >
+              <NavLink to={"/signup"}>
                 <button className="bg-[var(--brand)] text-white font-semibold rounded-xl px-8 py-3 hover:opacity-90 transition-all duration-200 mt-6 cursor-pointer">
                   Start for free Today
                 </button>
