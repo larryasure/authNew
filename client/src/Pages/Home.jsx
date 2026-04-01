@@ -13,6 +13,44 @@ import {
 } from "lucide-react";
 import React from "react";
 
+const faqs = [
+  {
+    id: 1,
+    question: "Is my financial data safe?",
+    answer:
+      " Yes. Passwords are hashed with bcrypt and all API routes are protected using JWT tokens. Your data is only accessible to you",
+  },
+
+  {
+    id: 2,
+    question: "Is my financial data safe?",
+    answer:
+      " Yes. Passwords are hashed with bcrypt and all API routes are protected using JWT tokens. Your data is only accessible to you",
+  },
+
+  {
+    id: 3,
+    question: "Can I use Sloth on mobile?",
+    answer:
+      "Yes, Sloth is fully responsive and works on phones and tablets just as well as on desktop. ",
+  },
+
+  {
+    id: 4,
+    question: "What categories can I track?",
+    answer:
+      " Food, Rent, Transport, Salary, Shopping, Health, Entertainment, Gadgets, Uber and more. You can always select 'Other' for anything custom.",
+  },
+
+  {
+    id: 5,
+    question: "Can I export my data?",
+    answer:
+      "Yes! You can export transactions as a CSV file filtered by This Month, Last 3 Months, or This Year. ",
+  },
+];
+
+
 export default function Home() {
   return (
     <>
@@ -61,7 +99,7 @@ export default function Home() {
             </div>
             <div className="grid-cols-1 border border-gray-300 bg-white rounded-xl p-4">
               <p className="text-gray-500 mb-1">Expenses</p>
-              <h1 className="text-2xl font-semibold  text-red-600 ">
+              <h1 className="text-2xl font-semibold  text-red-600  animate-pulse">
                 $1,760.00
               </h1>
             </div>
@@ -390,6 +428,17 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="bg-gray-50 max-w-7xl mx-auto my-15 p-8">
+          <div className="text-center">
+            <p className="text-[var(--brand)]   font-semibold tracking-widest   text-lg">
+              FAQ
+            </p>
+            <h2 className="text-gray-800 font-semibold text-3xl">
+              Common Questions
+            </h2>
           </div>
         </div>
       </div>
