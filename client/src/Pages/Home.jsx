@@ -25,27 +25,20 @@ const faqs = [
 
   {
     id: 2,
-    question: "Is my financial data safe?",
-    answer:
-      " Yes. Passwords are hashed with bcrypt and all API routes are protected using JWT tokens. Your data is only accessible to you",
-  },
-
-  {
-    id: 3,
     question: "Can I use Sloth on mobile?",
     answer:
       "Yes, Sloth is fully responsive and works on phones and tablets just as well as on desktop. ",
   },
 
   {
-    id: 4,
+    id: 3,
     question: "What categories can I track?",
     answer:
       " Food, Rent, Transport, Salary, Shopping, Health, Entertainment, Gadgets, Uber and more. You can always select 'Other' for anything custom.",
   },
 
   {
-    id: 5,
+    id: 4,
     question: "Can I export my data?",
     answer:
       "Yes! You can export transactions as a CSV file filtered by This Month, Last 3 Months, or This Year. ",
@@ -85,17 +78,17 @@ export default function Home() {
           </p>
 
           <div className="mt-5 flex gap-4 items-center justify-center ">
-            <button className="border border-gray-600 px-5 py-3 rounded-lg hover:bg-gray-100 cursor-pointer transition-all duration-200  font-medium    ">
+            <button className="border border-gray-600 bg-[var(--brand)] text-white hover:text-black px-6 py-3 rounded-lg hover:bg-gray-100 cursor-pointer transition-all duration-200  font-medium    ">
               Get Started Free
             </button>
-            <button className="border border-gray-600 px-5 py-3 rounded-lg  hover:bg-gray-100 cursor-pointer transition-all duration-200 font-medium    ">
+            <button className="border border-gray-400  text-gray-700 px-5 py-3 rounded-lg  hover:bg-gray-100 cursor-pointer transition-all duration-200 font-medium    ">
               See how it Works
             </button>
           </div>
         </div>
 
         <div className="max-w-4xl mx-auto bg-white  border border-gray-200 shadow-sm rounded-xl space-y-5 my-10 p-8 ">
-          <div className="grid grid-cols-3 gap-4  ">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4  ">
             <div className="grid-cols-1 border border-gray-300 bg-white rounded-xl p-4">
               <p className="text-gray-500 mb-1">Total Balance</p>
               <h1 className="text-2xl font-semibold  text-[var(--brand)] ">
@@ -128,7 +121,7 @@ export default function Home() {
                     <BriefcaseBusiness className="w-5 h-5 text-green-500" />
                   </div>
 
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col items-start">
                     <p className="font-medium text-gray-700 ">Salary</p>
                     <p className="text-sm text-gray-500">Salary. Mar 1</p>
                   </div>
@@ -143,7 +136,7 @@ export default function Home() {
                     <Hamburger className="w-5 h-5 text-red-500" />
                   </div>
 
-                  <div className="flex flex-col items-center ">
+                  <div className="flex flex-col items-start ">
                     <p className="font-medium text-gray-700 ">Lunch at Work</p>
                     <p className="text-sm text-gray-500">Lunch. Mar 3</p>
                   </div>
@@ -158,7 +151,7 @@ export default function Home() {
                     <House className="w-5 h-5 text-red-500" />
                   </div>
 
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col items-start">
                     <p className="font-medium text-gray-700 ">Monthly Rent</p>
                     <p className="text-sm text-gray-500">Rent. Mar 5</p>
                   </div>
@@ -196,18 +189,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto my-15  ">
+        <div className="sm:max-w-3xl mx-auto my-15 max-w-xl ">
           <div className="text-center ">
-            <h3 className="text-[var(--brand)]   font-semibold tracking-widest   text-lg">
+            <h3 className="text-[var(--brand)]   font-semibold tracking-widest text-lg">
               FEATURES
             </h3>
-            <h1 className="text-gray-800 font-semibold text-3xl ">
+            <h1 className="text-gray-800 font-semibold text-xl sm:text-3xl ">
               Everything you need to manage money!
             </h1>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 px-3 my-10">
-            <div className="grid-cols-1 hover:shadow-md shadow-sm cusor-pointer bg-white py-6 px-4 space-y-3 items-start flex flex-col rounded-xl ">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 px-3 my-10">
+            <div className="grid-cols-1 hover:shadow-md shadow-sm  bg-white py-6 px-4 space-y-3 items-start flex flex-col rounded-xl ">
               <div className="px-5 py-3.5 bg-[#f1def9] rounded-lg ">
                 <ArrowLeftRight className="w-6 h-6 text-[var(--brand)]" />
               </div>
@@ -220,7 +213,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid-cols-1 hover:shadow-md shadow-sm cusor-pointer bg-white py-6 px-4 space-y-3 items-start flex flex-col rounded-xl ">
+            <div className="grid-cols-1 hover:shadow-md shadow-sm cursor-pointer bg-white py-6 px-4 space-y-3 items-start flex flex-col rounded-xl ">
               <div className="px-5 py-3.5 bg-[#f1def9] rounded-lg ">
                 <AlignHorizontalDistributeCenter className="w-6 h-6 text-[var(--brand)]" />
               </div>
@@ -233,7 +226,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid-cols-1 hover:shadow-md shadow-sm cusor-pointer bg-white py-6 px-4 space-y-3 items-start flex flex-col rounded-xl ">
+            <div className="grid-cols-1 hover:shadow-md shadow-sm cursor-pointer bg-white py-6 px-4 space-y-3 items-start flex flex-col rounded-xl ">
               <div className="px-5 py-3.5 bg-[#f1def9] rounded-lg ">
                 <TrendingUp className="w-6 h-6 text-[var(--brand)]" />
               </div>
@@ -259,7 +252,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid-cols-1 hover:shadow-md shadow-sm cusor-pointer bg-white py-6 px-4 space-y-3 items-start flex flex-col rounded-xl ">
+            <div className="grid-cols-1 hover:shadow-md shadow-sm cursor-pointer bg-white py-6 px-4 space-y-3 items-start flex flex-col rounded-xl ">
               <div className="px-5 py-3.5 bg-[#f1def9] rounded-lg ">
                 <Download className="w-6 h-6 text-[var(--brand)]" />
               </div>
@@ -294,7 +287,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="p-7 bg-white rounded-xl my-10 ">
+          <div className="p-7 bg-white rounded-xl divide-y mt-10 divide-gray-100">
             <div className="flex items-center gap-5 ">
               <div className="flex items-center justify-center bg-[var(--brand)] h-8 w-8  rounded-full ">
                 <p className=" text-white font-bold ">1</p>
@@ -363,7 +356,7 @@ export default function Home() {
             <div className="grid sm:grid-cols-3 gap-9 px-8 grid-cols-1 ">
               <div className="grid-cols-1 bg-white px-4 py-5 space-y-2  rounded-xl border border-gray-300 shadow-md flex flex-col items-start ">
                 <p className="text-lg  text-gray-700 ">Free</p>
-                <h1 className="text-4xl font-bold">0$</h1>
+                <h1 className="text-4xl font-bold">$0</h1>
                 <p className=" text-gray-600">Forever free</p>
 
                 <div className="mt-7 space-y-2">
@@ -390,8 +383,8 @@ export default function Home() {
                 <p className="absolute -top-2.5 text-center py-0.5 left-1/2  -translate-x-1/2 bg-[var(--brand)] text-white px-3 rounded-2xl text-xs font-semibold z-10">
                   Most Popular
                 </p>
-                <p className="text-lg  text-gray-700 ">Free</p>
-                <h1 className="text-4xl font-bold">5$</h1>
+                <p className="text-lg  text-gray-700 ">Pro</p>
+                <h1 className="text-4xl font-bold">$5</h1>
                 <p className=" text-gray-600">per Month</p>
 
                 <div className="mt-7 space-y-2">
@@ -416,7 +409,7 @@ export default function Home() {
 
               <div className="grid-cols-1 bg-white px-4 py-5 space-y-2  rounded-xl border border-gray-300 shadow-md flex flex-col items-start ">
                 <p className="text-lg  text-gray-700 ">Team</p>
-                <h1 className="text-4xl font-bold">12$</h1>
+                <h1 className="text-4xl font-bold">$12</h1>
                 <p className=" text-gray-600">Per month</p>
 
                 <div className="mt-7 space-y-2">
@@ -479,15 +472,23 @@ export default function Home() {
 
         <div className="bg-white max-w-7xl mx-auto py-10 my-15  rounded-xl ">
           <div className="max-w-5xl mx-auto p-5 text-center ">
-            <h1 className="text-6xl font-medium text-gray-700">
+            <h1 className="sm:text-6xl text-3xl  font-medium text-gray-700">
               Ready to take control of your Money?
             </h1>
 
-            <div className="max-w-xl mx-auto p-5 text-center">
-              <p className="text-gray-500 leading-relaxed mt-1  text-lg">
+            <div className="sm:max-w-xl max-w-md mx-auto p-5 text-center">
+              <p className="text-gray-500 leading-relaxed mt-1 text-sm sm:text-lg">
                 Join thousands of people using Sloth to track spending, set
                 budgets, and build better financial habits.
               </p>
+
+              <NavLink
+              
+              >
+                <button className="bg-[var(--brand)] text-white font-semibold rounded-xl px-8 py-3 hover:opacity-90 transition-all duration-200 mt-6 cursor-pointer">
+                  Start for free Today
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>
