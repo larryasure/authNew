@@ -1,7 +1,6 @@
 import {
   AlignHorizontalDistributeCenter,
   ArrowLeftRight,
-  ArrowUp,
   BriefcaseBusiness,
   Check,
   ChevronUp,
@@ -439,6 +438,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
