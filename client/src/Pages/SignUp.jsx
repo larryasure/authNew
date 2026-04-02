@@ -101,7 +101,7 @@ export default function SignUp() {
   const strengthScore = passwordStrength(formData.password);
   return (
     <>
-      <div className="min-h-screen py-4 w-full z-10 ">
+      <div className="min-h-screen py-4 w-full z-10 mt-5 mb-10 ">
         <div className="max-w-96 border border-gray-300 shadow-xl  rounded-2xl mx-auto min-h-[50vh] bg-white p-6  ">
           <div>
             <img src={logo} alt="logo Image" className="w-14" />
@@ -115,7 +115,7 @@ export default function SignUp() {
           </div>
 
           <form action="" onSubmit={handleSubmit} className="mt-4 space-y-1">
-            <label htmlFor="name" className="flex  flex-col space-y-1 ">
+          <label htmlFor="name" className="flex  flex-col space-y-1 ">
               <span className="font-bold text-black/80 text-sm">Full Name</span>
 
               <div className="relative">

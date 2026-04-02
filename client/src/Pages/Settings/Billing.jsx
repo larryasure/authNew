@@ -30,8 +30,8 @@ export default function Billing() {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 my-5 px-4">
-          <div className="grid-cols-1  shadow-xl border-2 cursor-pointer border-gray-100 p-6 rounded-xl max-h-85 flex  space-y-3 flex-col pb-15 transition-all duration-300 hover:border-[var(--brand)]">
+        <div className="grid grid-cols-3 gap-4 my-5 px-4 max-w-2xl  sm:max-w-3xl">
+          <div className="grid-cols-1  shadow-xl border-2 cursor-pointer border-gray-100 p-6 rounded-xl max-h-100  flex  space-y-3 flex-col pb-15 transition-all duration-300 hover:border-[var(--brand)]">
             <div className="flex flex-col gap-0.5">
               <h3 className="font-semibold text-xl text-gray-800 ">Free</h3>
               <p className="font-semibold text-2xl">
@@ -82,7 +82,7 @@ export default function Billing() {
             </button>
           </div>
 
-          <div className="grid-cols-1  shadow-xl border-2 cursor-pointer border-gray-100 transition-all duration-300  p-4 rounded-xl max-h-85 hover:border-[var(--brand)]">
+          <div className="grid-cols-1  shadow-xl border-2 cursor-pointer border-gray-100 transition-all duration-300  p-4 rounded-xl max-h-100 hover:border-[var(--brand)]">
             <span className="bg-[#eaeaff] text-[var(--brand)] px-3 py-0.5 text-sm font-semibold rounded-xl">
               Most popular
             </span>
@@ -139,12 +139,12 @@ export default function Billing() {
               </div>
             </div>
 
-            <button className="border border-gray-400 rounded-lg py-2.5 px-7 w-full   mt-4 cursor-pointer">
+            <button className="border border-gray-400 rounded-lg py-2.5 w-full   mt-4 cursor-pointer">
               Upgrade to Pro
             </button>
           </div>
 
-          <div className="grid-cols-1  shadow-xl border-2 cursor-pointer border-gray-100 p-4 rounded-xl max-h-85 hover:border-[var(--brand)] transition-all duration-300">
+          <div className="grid-cols-1  shadow-xl border-2 cursor-pointer border-gray-100 p-4 rounded-xl max-h-100 hover:border-[var(--brand)] transition-all duration-300">
             <div className="flex flex-col gap-0.5">
               <h3 className="font-semibold text-xl text-gray-800 ">Business</h3>
               <p className="font-semibold text-2xl">
@@ -200,7 +200,7 @@ export default function Billing() {
               </div>
             </div>
 
-            <button className="border border-gray-400 rounded-lg py-2.5 px-7 w-full   mt-4 cursor-pointer">
+            <button className="border border-gray-400 rounded-lg py-2.5  w-full   mt-4 cursor-pointer">
               Upgrade to Business
             </button>
           </div>
