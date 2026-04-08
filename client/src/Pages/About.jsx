@@ -353,6 +353,7 @@ export default function About() {
         </div>
 
         <div className="max-w-2xl mx-auto text-center bg-white rounded-xl  p-5  my-10 ">
+
           <div className="flex items-center justify-center flex-col   ">
             <h1 className=" text-3xl text-gray-800 font-semibold">
               Start tracking Today. It's Free
@@ -366,13 +367,13 @@ export default function About() {
 
           <div className="flex items-center justify-center gap-4 my-6">
             <NavLink to={"/signup"}>
-              <button className="px-6 py-2.5 rounded-xl bg-[var(--brand)] text-white font-semibold shadow-sm hover:opacity-90 transition">
+              <button className="px-6 py-2.5  active:scale-105 duration-300 transition-all rounded-xl bg-[var(--brand)] text-white font-semibold shadow-sm hover:opacity-90 ">
                 Get Started
               </button>
             </NavLink>
 
             <NavLink to={"/feature"}>
-              <button className="px-6 py-2.5 rounded-xl border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition">
+              <button className="px-6 py-2.5 active:scale-105 duration-300 transition-all rounded-xl border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 ">
                 See Features
               </button>
             </NavLink>

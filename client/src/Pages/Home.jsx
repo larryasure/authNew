@@ -491,7 +491,7 @@ export default function Home() {
               </p>
 
               <NavLink to={"/signup"}>
-                <button className="bg-[var(--brand)] text-white font-semibold rounded-xl px-8 py-3 hover:opacity-90 transition-all duration-200 mt-6 cursor-pointer">
+                <button className="bg-[var(--brand)] active:scale-105 duration-300 transition-all text-white font-semibold rounded-xl px-8 py-3 hover:opacity-90  mt-6 cursor-pointer">
                   Start for free Today
                 </button>
               </NavLink>

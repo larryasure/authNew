@@ -30,7 +30,7 @@ export default function Billing() {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 my-5 px-4 max-w-2xl  sm:max-w-3xl">
+        <div className="grid grid-cols-3 gap-4 my-5 px-4 max-w-2xl mx-auto  sm:max-w-3xl">
           <div className="grid-cols-1  shadow-xl border-2 cursor-pointer border-gray-100 p-6 rounded-xl max-h-100  flex  space-y-3 flex-col pb-15 transition-all duration-300 hover:border-[var(--brand)]">
             <div className="flex flex-col gap-0.5">
               <h3 className="font-semibold text-xl text-gray-800 ">Free</h3>
