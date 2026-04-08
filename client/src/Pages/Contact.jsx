@@ -103,8 +103,15 @@ export default function Contact() {
               </label>
 
               <label htmlFor="">
-                <textarea name="message" placeholder="Enter your message" id="" className=" placeholder:text-[13px] placeholder:font-medium w-full active:outline-0 border border-gray-400 rounded-xl h-40 outline-0 py-4 px-3  "></textarea>
+                <textarea
+                  name="message"
+                  placeholder="Enter your message"
+                  id=""
+                  className=" placeholder:text-[13px] placeholder:font-medium w-full active:outline-0 border border-gray-400 rounded-xl h-40 outline-0 py-4 px-3  "
+                ></textarea>
               </label>
+
+              <button className="text-white font-semibold text-sm  bg-[var(--brand)] px-5 py-2.5 rounded-xl ">Send message</button>
             </form>
           </div>
         </div>
