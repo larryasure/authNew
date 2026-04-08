@@ -1,8 +1,10 @@
 import { Clock, Mail, Phone } from "lucide-react";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 export default function Contact() {
+  const [phone, setPhone] = useState("");
   return (
     <>
       <div className="min-h-screen px-8 my-15 ">
@@ -92,13 +94,16 @@ export default function Contact() {
               <label htmlFor="" className="flex flex-col gap-1 ">
                 <span className="text-gray-700 font-medium">Phone number</span>
 
-                <input
-                  type="tel"
-                  name="phone number"
-                  placeholder="phone number"
-
-                  className="active:outline-0 border border-gray-400 rounded-xl h-10 outline-0 py-4 px-3  placeholder:text-[13px] placeholder:font-medium"
+                <PhoneInput
+                  country={"ng"} // Nigeria default
+                  value={phone}
+                  onChange={setPhone}
+                  inputClass="!w-full !h-10 !rounded-xl !border-gray-400"
                 />
+              </label>
+
+              <label htmlFor="">
+                <textarea name="message" placeholder="Enter your message" id="" className=" placeholder:text-[13px] placeholder:font-medium w-full active:outline-0 border border-gray-400 rounded-xl h-40 outline-0 py-4 px-3  "></textarea>
               </label>
             </form>
           </div>
